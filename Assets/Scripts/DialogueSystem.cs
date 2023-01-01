@@ -23,7 +23,7 @@ public class DialogueSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartConversation();
+        StartConversation("Test Character", testConvJSON);
     }
 
     // Update is called once per frame
@@ -32,7 +32,7 @@ public class DialogueSystem : MonoBehaviour
         
     }
 
-    public void StartConversation() {
+    public void StartConversation(string characterName, TextAsset convJSON) {
         DialogueBubble dialogueBubble = Instantiate(dialogueBubblePrefab).GetComponent<DialogueBubble>();
         dialogueBubble.Initialize(new Vector2(0f, 0f), testConvJSON);
     }
