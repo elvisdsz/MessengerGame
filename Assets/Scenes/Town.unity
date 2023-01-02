@@ -270,6 +270,7 @@ GameObject:
   - component: {fileID: 1884090964}
   - component: {fileID: 1884090963}
   - component: {fileID: 1884090965}
+  - component: {fileID: 1884090966}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -405,6 +406,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1884090966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1884090960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03467f3438e43ee46a89f6f746254eda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
 --- !u!1001 &2007660193
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -473,6 +487,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7604412041417014026, guid: c8fcc73e41ec7974680da7920bf89023, type: 3}
+      propertyPath: level
+      value: Town
+      objectReference: {fileID: 0}
+    - target: {fileID: 7604412041417014026, guid: c8fcc73e41ec7974680da7920bf89023, type: 3}
+      propertyPath: sceneName
+      value: Town
+      objectReference: {fileID: 0}
     - target: {fileID: 7604412041417014027, guid: c8fcc73e41ec7974680da7920bf89023, type: 3}
       propertyPath: m_RootOrder
       value: 3

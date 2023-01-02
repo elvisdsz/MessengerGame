@@ -191,6 +191,10 @@ PrefabInstance:
       propertyPath: scene
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7604412041417014026, guid: c8fcc73e41ec7974680da7920bf89023, type: 3}
+      propertyPath: sceneName
+      value: OuterTown
+      objectReference: {fileID: 0}
     - target: {fileID: 7604412041417014027, guid: c8fcc73e41ec7974680da7920bf89023, type: 3}
       propertyPath: m_RootOrder
       value: 2
