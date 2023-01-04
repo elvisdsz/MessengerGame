@@ -6,8 +6,15 @@ public class CameraFollow : MonoBehaviour {
     public float yOffset = 1f;
     public Transform target;
 
+    private static GameObject instance;
+
     private void Start() {
         DontDestroyOnLoad(gameObject);
+        if (instance == null)
+            instance = gameObject;
+        else
+            Destroy(gameObject);
+        target = GameObject.Find("Player").transform;
     }
 
     void Update() {
