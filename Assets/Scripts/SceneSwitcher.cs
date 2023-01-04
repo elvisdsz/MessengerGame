@@ -10,16 +10,25 @@ public class SceneSwitcher : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision) {
 
         if (collision.gameObject.tag == "Player") {
-            if (sceneName.Equals("Town")) {
-                PlayerSpawn.fromTown = true;
+
+
+            if (sceneTo.Equals("Town")) {
+                PlayerSpawn.toTown = true;
                 SceneManager.LoadScene(scene);
             }
-            if (sceneName.Equals("OuterTown")) {
-                PlayerSpawn.fromOuterTown = true;
+            if (sceneTo.Equals("OuterTown")) {
+                if (sceneName.Equals("Town")) {
+                    PlayerSpawn.toOuterTown = true;
+                    PlayerSpawn.fromTown = true;
+                }
+                if (sceneName.Equals("Camp")) {
+                    PlayerSpawn.toOuterTown = true;
+                    PlayerSpawn.fromCamp = true;
+                }
                 SceneManager.LoadScene(scene);
             }
-            if (sceneName.Equals("Camp")) {
-                PlayerSpawn.fromCamp = true;
+            if (sceneTo.Equals("Camp")) {
+                PlayerSpawn.toCamp = true;
                 SceneManager.LoadScene(scene);
             }
         }

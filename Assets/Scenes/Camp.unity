@@ -187,6 +187,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7604412041417014026, guid: c8fcc73e41ec7974680da7920bf89023, type: 3}
+      propertyPath: sceneTo
+      value: OuterTown
+      objectReference: {fileID: 0}
+    - target: {fileID: 7604412041417014026, guid: c8fcc73e41ec7974680da7920bf89023, type: 3}
+      propertyPath: sceneName
+      value: Camp
+      objectReference: {fileID: 0}
     - target: {fileID: 7604412041417014027, guid: c8fcc73e41ec7974680da7920bf89023, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -197,7 +205,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7604412041417014027, guid: c8fcc73e41ec7974680da7920bf89023, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -11.53
+      value: -11.6
       objectReference: {fileID: 0}
     - target: {fileID: 7604412041417014027, guid: c8fcc73e41ec7974680da7920bf89023, type: 3}
       propertyPath: m_LocalPosition.z

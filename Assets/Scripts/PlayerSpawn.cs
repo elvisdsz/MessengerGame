@@ -8,21 +8,29 @@ public class PlayerSpawn : MonoBehaviour {
     public static bool fromOuterTown;
     public static bool fromCamp;
 
-    public GameObject player;
+    public static bool toTown;
+    public static bool toOuterTown;
+    public static bool toCamp;
 
     void Update() {
-        
-        if (fromTown) {
+
+        if (toTown) {
+            this.gameObject.transform.position = new Vector2(14.1f, -5.5f);
+            toTown = false;
+        }
+        if (toOuterTown && fromTown) {
             this.gameObject.transform.position = new Vector2(8, -10);
+            toOuterTown = false;
             fromTown = false;
         }
-        if (fromOuterTown) {
-            //this.gameObject.transform.position = new Vector2();
-            fromOuterTown = false;
-        }
-        if (fromCamp) {
-            //this.gameObject.transform.position = new Vector2();
+        if (toOuterTown && fromCamp) {
+            this.gameObject.transform.position = new Vector2(7.92f, -2.9f);
+            toOuterTown = false;
             fromCamp = false;
+        }
+        if (toCamp) {
+            this.gameObject.transform.position = new Vector2(5.85f, -10.5f);
+            toCamp = false;
         }
     }
 }
