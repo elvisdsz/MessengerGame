@@ -12,11 +12,16 @@ public class DialogueBubble : MonoBehaviour
     [SerializeField] private GameObject choicesObject;
     [SerializeField] private List<TextMeshProUGUI> choiceTextObjList;
 
+    private string characterId;
     private Vector2 pivot;
     private Vector2 padding = new Vector2(0.6f, 0.4f);
+    private float maxDistanceConvCut = 5f;
 
     private bool isTyping = false;
     private Story story = null;
+
+    private Transform npcTransform;
+    private Transform playerTransform;
 
     public Vector2 testPlayerPosition = new Vector2(5f, -2f); // FIXME: remove, test-only
 
@@ -24,20 +29,40 @@ public class DialogueBubble : MonoBehaviour
     void Start()
     {
         choicesObject.SetActive(false);
+        //speechObject.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(!speechObject.activeSelf)
+            return;
+
+        if(Vector2.Distance(playerTransform.position, npcTransform.position) > maxDistanceConvCut)
+            FinishConversation();
+
         if(!isTyping && Input.GetKeyDown(KeyCode.Space))
             NextSentence();
+
+        if(pivot != (Vector2)npcTransform.position) {
+            pivot = npcTransform.position;
+            speechObject.transform.position = pivot + new Vector2(0f, (npcTransform.localScale.y*0.75f)+speechBackgroundSprite.size.y/2);
+        }
+
+        if(choicesObject.activeInHierarchy) {
+            choicesObject.transform.position = (Vector2)playerTransform.position + new Vector2(0f, playerTransform.localScale.y*0.75f);
+        }
     }
 
-    public void Initialize(Vector2 pivotPosition, TextAsset conversationJSON)
+    public void Initialize(string characterId, Transform pivotTransform, Transform playerTransform, TextAsset conversationJSON)
     {
-        pivot = pivotPosition;
+        this.characterId = characterId;
+        this.pivot = pivotTransform.position;
+        this.npcTransform = pivotTransform;
+        this.playerTransform = playerTransform;
         choiceTextObjList[0].transform.parent.parent.GetComponent<Canvas>().worldCamera = Camera.main;
         this.story = new Story(conversationJSON.text);
+        speechObject.SetActive(true);
         NextSentence();
     }
 
@@ -48,7 +73,7 @@ public class DialogueBubble : MonoBehaviour
         Vector2 textSize = speechTextObject.GetRenderedValues(false);
         Vector2 rectSize = textSize + padding;
         speechBackgroundSprite.size = rectSize;
-        speechObject.transform.position = pivot + new Vector2(0f, rectSize.y/2);
+        speechObject.transform.position = pivot + new Vector2(0f, (npcTransform.localScale.y*0.75f)+rectSize.y/2);
         StartCoroutine(TypeLetters(speech));
     }
 
@@ -84,7 +109,8 @@ public class DialogueBubble : MonoBehaviour
     }
 
     public void FinishConversation() {
-        Destroy(gameObject, 0.02f);
+        speechObject.SetActive(false);
+        DialogueSystem._instance.EndConversation(characterId);
     }
 
     IEnumerator DisplayChoices(List<Choice> choiceList) {
@@ -93,7 +119,7 @@ public class DialogueBubble : MonoBehaviour
 
         isTyping = true;
         choicesObject.SetActive(true);
-        choicesObject.transform.position = testPlayerPosition;    //TODO: Move to update?
+        choicesObject.transform.position = (Vector2)playerTransform.position + new Vector2(0f, playerTransform.localScale.y*0.75f);
         for(int i=0; i<choiceTextObjList.Count; i++) {
             TextMeshProUGUI choiceObj = choiceTextObjList[i];
 
@@ -105,7 +131,6 @@ public class DialogueBubble : MonoBehaviour
                 Vector2 textSize = choiceObj.GetRenderedValues(false);
                 Debug.Log("Choice: "+choiceList[i].text+" == "+(textSize + padding));
                 choiceParent.GetComponent<RectTransform>().sizeDelta = textSize + padding;
-                //yield return new WaitForSeconds(0.2f);
             } else {
                 choiceObj.text = "";
                 choiceObj.transform.parent.gameObject.SetActive(false);

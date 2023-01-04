@@ -6,9 +6,14 @@ public class DialogueSystem : MonoBehaviour
 {
     public static DialogueSystem _instance;
 
-    public TextAsset testConvJSON;
+    public Dictionary<string, DialogueBubble> currentConvs = new Dictionary<string, DialogueBubble>();
+
+    private Transform playerTransform;
 
     [SerializeField] private GameObject dialogueBubblePrefab;
+    [SerializeField] private GameObject eventSystemPrefab;
+
+    private bool conversationOn = false;
 
     void Awake() // singleton
     {
@@ -23,7 +28,12 @@ public class DialogueSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartConversation("Test Character", testConvJSON);
+        playerTransform = GameObject.Find("Player").transform; // TODO: Optimize
+
+        if(GameObject.Find("EventSystem") == null)
+            Instantiate(eventSystemPrefab);
+
+        //StartConversation("Test Character", testConvJSON);
     }
 
     // Update is called once per frame
@@ -32,8 +42,25 @@ public class DialogueSystem : MonoBehaviour
         
     }
 
-    public void StartConversation(string characterName, TextAsset convJSON) {
+    public void StartConversation(string characterId, string characterName, Transform npcTransform, TextAsset convJSON) {
+        if(conversationOn || currentConvs.ContainsKey(characterId)) // forced to run max 1 conv at a time
+            return;
+
         DialogueBubble dialogueBubble = Instantiate(dialogueBubblePrefab).GetComponent<DialogueBubble>();
-        dialogueBubble.Initialize(new Vector2(0f, 0f), testConvJSON);
+        dialogueBubble.Initialize(characterId, npcTransform, playerTransform, convJSON);
+        currentConvs.Add(characterId, dialogueBubble);
+        conversationOn = true;
+    }
+
+    public void EndConversation(string characterId) {
+        Debug.Log(new List<string>(currentConvs.Keys));
+        Destroy(currentConvs[characterId].gameObject, 0.02f);
+        currentConvs.Remove(characterId);
+        if(currentConvs.Count == 0)
+            conversationOn = false;
+    }
+
+    public bool IsConversationOn() {
+        return conversationOn;
     }
 }
