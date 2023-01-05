@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Ink.Runtime;
 
 public class DialogueSystem : MonoBehaviour
 {
@@ -47,13 +48,16 @@ public class DialogueSystem : MonoBehaviour
             return;
 
         DialogueBubble dialogueBubble = Instantiate(dialogueBubblePrefab).GetComponent<DialogueBubble>();
-        dialogueBubble.Initialize(characterId, npcTransform, playerTransform, convJSON);
+        Story story = new Story(convJSON.text);
+        StartListening(story);
+        dialogueBubble.Initialize(characterId, npcTransform, playerTransform, story);
         currentConvs.Add(characterId, dialogueBubble);
         conversationOn = true;
     }
 
     public void EndConversation(string characterId) {
-        Debug.Log(new List<string>(currentConvs.Keys));
+        Story story = currentConvs[characterId].story;
+        StopListening(story);
         Destroy(currentConvs[characterId].gameObject, 0.02f);
         currentConvs.Remove(characterId);
         if(currentConvs.Count == 0)
@@ -62,5 +66,31 @@ public class DialogueSystem : MonoBehaviour
 
     public bool IsConversationOn() {
         return conversationOn;
+    }
+
+
+    public void StartListening(Story story) {
+        LoadFlagsToStory(story);
+        story.variablesState.variableChangedEvent += VariableChanged;
+    }
+
+    public void StopListening(Story story) {
+        story.variablesState.variableChangedEvent -= VariableChanged;
+    }
+
+    public static void VariableChanged(string name, Ink.Runtime.Object value) {
+        // Debug.Log("Variable changed: "+name+" = "+value);
+        NarrativeEngine.Flag flag;
+        if (!NarrativeEngine.Flag.TryParse(name, out flag)) {
+            Debug.LogWarning("Ink variable does not exist as a narative engine flag.");
+            return;
+        }
+        NarrativeEngine.SetFlag(flag, ((Ink.Runtime.IntValue) value).value);
+    }
+
+    private void LoadFlagsToStory(Story story) {
+        foreach(KeyValuePair<NarrativeEngine.Flag, int> flag in NarrativeEngine.GetAllUsedFlags()) {
+            story.variablesState.SetGlobal(flag.Key.ToString(), Ink.Runtime.IntValue.Create(flag.Value));
+        }
     }
 }
