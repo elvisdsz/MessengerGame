@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class NarrativeEngine : MonoBehaviour
 {
-    [SerializeField] private State currentState = State.BEGIN;
-    [SerializeField] private Dictionary<Flag, bool> flagValues = new Dictionary<Flag, bool>();
+    [SerializeField] private static State currentState = State.BEGIN;
+    [SerializeField] private static Dictionary<Flag, int> flagValues = new Dictionary<Flag, int>();
 
     public enum State {
         // ACT 1
@@ -19,29 +19,39 @@ public class NarrativeEngine : MonoBehaviour
     }
 
     public enum Flag {
+        TEST_FLAG,
         MET_KING, MET_COMMANDER, MET_COMPANION,
         PLAYER_BETRAYED, COMPANION_BETRAYED,
         JOINED_ENEMY,
-        LEADER_ESCAPED, COMMANDER_INFORMED1, COMMANDER_INFORMED2, 
+        KING_ESCAPED, COMMANDER_INFORMED1, COMMANDER_INFORMED2, 
     }
 
-    public void SetFlag(Flag flagName, bool value) {
-        flagValues.Add(flagName, value);
+    public static void SetFlag(Flag flagName, int value) {
+        flagValues[flagName] = value;
     }
 
-    public bool GetFlag(Flag flagName) {
+    public static int GetFlag(Flag flagName) {
         try {
             return flagValues[flagName];
         } catch(KeyNotFoundException) {
-            return false;
+            return -1;
         }
     }
 
-    public bool IsFlagSet(Flag flagName) {
+    public static bool IsFlagSet(Flag flagName) {
         return flagValues.ContainsKey(flagName);
     }
 
-    public State GetCurrentState() {
+    public static State GetCurrentState() {
         return currentState;
+    }
+
+    public static Dictionary<Flag, int> GetAllUsedFlags() {
+        return flagValues;
+    }
+
+    public static void ResetNarrative() {
+        currentState = State.BEGIN;
+        flagValues.Clear();
     }
 }
