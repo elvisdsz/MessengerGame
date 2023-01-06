@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour {
     public float speed = 12f;
     private Vector2 movement;
     public bool atTree;
+    public bool pickedUpRock;
     public int mineSpeed;
 
     public Slider sliderMining;
@@ -20,6 +21,14 @@ public class PlayerController : MonoBehaviour {
             instance = gameObject;
         else
             Destroy(gameObject);
+    }
+
+    void OnTriggerEnter2D(Collider2D collision) {
+        
+        if (collision.gameObject.tag == "Rock") {
+            Debug.Log("Picked up rock");
+            pickedUpRock = true;
+        }
     }
 
     void Update() {

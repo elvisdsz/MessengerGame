@@ -7,10 +7,12 @@ public class PlayerSpawn : MonoBehaviour {
     public static bool fromTown;
     public static bool fromOuterTown;
     public static bool fromCamp;
+    public static bool fromPrison;
 
     public static bool toTown;
     public static bool toOuterTown;
     public static bool toCamp;
+    public static bool toPrison;
 
     void Update() {
 
@@ -31,6 +33,10 @@ public class PlayerSpawn : MonoBehaviour {
         if (toCamp) {
             this.gameObject.transform.position = new Vector2(5.85f, -10.5f);
             toCamp = false;
+        }
+        if (toPrison) {
+            this.gameObject.transform.position = new Vector2(2, -3);
+            toPrison = false;
         }
     }
 }

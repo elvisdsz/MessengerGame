@@ -42,6 +42,7 @@ public class MineTree : MonoBehaviour {
                     mineValue = 0;
                     playerController.sliderMining.gameObject.SetActive(false);
                     gameObject.SetActive(false);
+                    Destroy(gameObject);
                     //player.GetComponent<PlayerController>().wood += 50;
                     //player.GetComponent<PlayerController>().treesChoppedDown++;
                 }

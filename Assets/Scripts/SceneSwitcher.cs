@@ -11,7 +11,6 @@ public class SceneSwitcher : MonoBehaviour {
 
         if (collision.gameObject.tag == "Player") {
 
-
             if (sceneTo.Equals("Town")) {
                 PlayerSpawn.toTown = true;
                 SceneManager.LoadScene(scene);
@@ -29,6 +28,10 @@ public class SceneSwitcher : MonoBehaviour {
             }
             if (sceneTo.Equals("Camp")) {
                 PlayerSpawn.toCamp = true;
+                SceneManager.LoadScene(scene);
+            }
+            if (sceneTo.Equals("Prison")) {
+                PlayerSpawn.toPrison = true;
                 SceneManager.LoadScene(scene);
             }
         }
