@@ -15,6 +15,7 @@ public class DialogueBubble : MonoBehaviour
     private string characterId;
     private Vector2 pivot;
     private Vector2 padding = new Vector2(0.6f, 0.4f);
+    private Vector2 choicePadding = new Vector2(1.2f, 0.4f);
     private float maxDistanceConvCut = 3f;
 
     private bool isTyping = false;
@@ -85,9 +86,6 @@ public class DialogueBubble : MonoBehaviour
             yield return new WaitForSeconds(0.025f);
         }
         isTyping = false;
-        if(story.currentChoices.Count > 0) {
-            StartCoroutine(DisplayChoices(story.currentChoices));
-        }
     }
 
     private bool NextSentence() {
@@ -98,8 +96,8 @@ public class DialogueBubble : MonoBehaviour
             Speak(story.Continue());
             return true;
         } else if(story.currentChoices.Count > 0) {
-            // prompt to make a choice
-            return false;
+            StartCoroutine(DisplayChoices(story.currentChoices));
+            return true;
         }
         
         FinishConversation();
