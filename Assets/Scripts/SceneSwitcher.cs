@@ -40,4 +40,8 @@ public class SceneSwitcher : MonoBehaviour {
             }
         }
     }
+
+    public static void ChangeToScene(int scene) {
+        SceneManager.LoadScene(scene);
+    }
 }
