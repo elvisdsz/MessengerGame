@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerSpawn : MonoBehaviour {
@@ -31,7 +29,7 @@ public class PlayerSpawn : MonoBehaviour {
             fromCamp = false;
         }
         if (toCamp) {
-            this.gameObject.transform.position = new Vector2(5.85f, -10.5f);
+            this.gameObject.transform.position = new Vector2(8f, -11.8f);
             toCamp = false;
         }
         if (toPrison) {

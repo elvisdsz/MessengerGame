@@ -24,6 +24,10 @@ public class SceneSwitcher : MonoBehaviour {
                     PlayerSpawn.toOuterTown = true;
                     PlayerSpawn.fromCamp = true;
                 }
+                if (sceneName.Equals("Prison")) {
+                    PlayerSpawn.toOuterTown = true;
+                    PlayerSpawn.fromCamp = true; // same location
+                }
                 SceneManager.LoadScene(scene);
             }
             if (sceneTo.Equals("Camp")) {

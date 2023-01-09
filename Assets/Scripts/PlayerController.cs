@@ -8,14 +8,21 @@ public class PlayerController : MonoBehaviour {
     private Vector2 movement;
     public bool atTree;
     public bool pickedUpRock;
-    public int mineSpeed;
+    public int pickSpeed;
 
     public Slider sliderMining;
     public GameObject pressP;
 
     private static GameObject instance;
+    private PlayerHunger playerHunger;
+
+    public Animator animator;
+
 
     private void Start() {
+
+        playerHunger = gameObject.GetComponent<PlayerHunger>();
+
         DontDestroyOnLoad(gameObject);
         if (instance == null)
             instance = gameObject;
@@ -36,6 +43,21 @@ public class PlayerController : MonoBehaviour {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
+        animator.SetInteger("babyNumber", 0);
+
+        if (movement.x == 1) {
+            animator.SetInteger("babyNumber", 3);
+        }
+        if (movement.x == -1) {
+            animator.SetInteger("babyNumber", 2);
+        }
+        if (movement.y == 1) {
+            animator.SetInteger("babyNumber", 4);
+        }
+        if (movement.y == -1) {
+            animator.SetInteger("babyNumber", 1);
+        }
+        
         if (atTree) {
             pressP.SetActive(true);
             if (Input.GetKey(KeyCode.P)) {
@@ -52,6 +74,10 @@ public class PlayerController : MonoBehaviour {
 
     private void FixedUpdate() {
 
-        rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
+        if (playerHunger.playerSpeed >= 0.4) {
+            rb.MovePosition(rb.position + movement * (speed * playerHunger.playerSpeed) * Time.fixedDeltaTime);
+        } else {
+            rb.MovePosition(rb.position + movement * 0.8f * Time.fixedDeltaTime);
+        }
     }
 }

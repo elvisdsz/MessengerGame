@@ -647,17 +647,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7604412041417014026, guid: c8fcc73e41ec7974680da7920bf89023, type: 3}
+      propertyPath: sceneTo
+      value: OuterTown
+      objectReference: {fileID: 0}
+    - target: {fileID: 7604412041417014026, guid: c8fcc73e41ec7974680da7920bf89023, type: 3}
+      propertyPath: sceneName
+      value: Prison
+      objectReference: {fileID: 0}
     - target: {fileID: 7604412041417014027, guid: c8fcc73e41ec7974680da7920bf89023, type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7604412041417014027, guid: c8fcc73e41ec7974680da7920bf89023, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1
+      value: 4.64
       objectReference: {fileID: 0}
     - target: {fileID: 7604412041417014027, guid: c8fcc73e41ec7974680da7920bf89023, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: -1.62
       objectReference: {fileID: 0}
     - target: {fileID: 7604412041417014027, guid: c8fcc73e41ec7974680da7920bf89023, type: 3}
       propertyPath: m_LocalPosition.z
@@ -691,6 +699,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7604412041417014028, guid: c8fcc73e41ec7974680da7920bf89023, type: 3}
+      propertyPath: m_Size.x
+      value: 0.6528063
+      objectReference: {fileID: 0}
+    - target: {fileID: 7604412041417014028, guid: c8fcc73e41ec7974680da7920bf89023, type: 3}
+      propertyPath: m_Size.y
+      value: 0.32517278
+      objectReference: {fileID: 0}
+    - target: {fileID: 7604412041417014028, guid: c8fcc73e41ec7974680da7920bf89023, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.05000639
+      objectReference: {fileID: 0}
+    - target: {fileID: 7604412041417014028, guid: c8fcc73e41ec7974680da7920bf89023, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.035500348
+      objectReference: {fileID: 0}
     - target: {fileID: 7604412041417014029, guid: c8fcc73e41ec7974680da7920bf89023, type: 3}
       propertyPath: m_Name
       value: SceneChanger
@@ -701,6 +725,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8fcc73e41ec7974680da7920bf89023, type: 3}
+--- !u!1 &1817363757 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7604412041417014029, guid: c8fcc73e41ec7974680da7920bf89023, type: 3}
+  m_PrefabInstance: {fileID: 1817363756}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1954875317
 GameObject:
   m_ObjectHideFlags: 0
@@ -817,10 +846,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f45878d339b3df7428519debd21d4ce6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrowButton: {fileID: 775468423}
-  bars: {fileID: 918427636}
   zRotate: 0
   speed: 1
-  escapeLayer: {fileID: 1017680934}
   text: {fileID: 109515300}
+  arrowButton: {fileID: 775468423}
+  bars: {fileID: 918427636}
   rock: {fileID: 1017680935}
+  sceneChanger: {fileID: 1817363757}
+  escapeLayer: {fileID: 1017680934}

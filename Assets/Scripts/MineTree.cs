@@ -4,12 +4,19 @@ public class MineTree : MonoBehaviour {
 
     private GameObject player;
     private bool atTree;
-    private PlayerController playerController;
     private float mineValue;
+
+    private PlayerController playerController;
+    private PlayerHunger playerHunger;
+
+    private float timer;
+    private bool wait;
+
 
     void Start() {
         player = GameObject.Find("Player");
         playerController = player.GetComponent<PlayerController>();
+        playerHunger = player.GetComponent<PlayerHunger>();
     }
 
     void OnTriggerEnter2D(Collider2D other) {
@@ -34,21 +41,52 @@ public class MineTree : MonoBehaviour {
 
             if (Input.GetKey(KeyCode.P)) {
 
-                mineValue += player.GetComponent<PlayerController>().mineSpeed * Time.deltaTime;
+                mineValue += player.GetComponent<PlayerController>().pickSpeed * Time.deltaTime;
 
                 if (mineValue < 100) {
                     playerController.sliderMining.value = mineValue;
                 } else {
                     mineValue = 0;
-                    playerController.sliderMining.gameObject.SetActive(false);
-                    gameObject.SetActive(false);
-                    Destroy(gameObject);
-                    //player.GetComponent<PlayerController>().wood += 50;
-                    //player.GetComponent<PlayerController>().treesChoppedDown++;
+                    playerHunger.foodSlider.value += 25;
+
+                    //wait = true;
+                    //playerController.wait = true;
                 }
             } else {
                 mineValue = 0;
             }
-        }   
+        }
+
+        // to add timer
+        /*
+        if (wait) { 
+            timer += Time.deltaTime;
+            Debug.Log(timer);
+            if (timer >= 5) {
+                wait = false;
+                playerController.wait = false;
+                timer = 0f;
+            }
+        } else {
+            if (atTree) {
+
+                if (Input.GetKey(KeyCode.P)) {
+
+                    mineValue += player.GetComponent<PlayerController>().mineSpeed * Time.deltaTime;
+
+                    if (mineValue < 100) {
+                        playerController.sliderMining.value = mineValue;
+                    } else {
+                        mineValue = 0;
+                        playerHunger.foodSlider.value += 10;
+                        wait = true;
+                        playerController.wait = true;
+                    }
+                } else {
+                    mineValue = 0;
+                }
+            } 
+        } 
+        */
     }
 }

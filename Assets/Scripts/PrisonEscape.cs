@@ -4,16 +4,20 @@ using TMPro;
 
 public class PrisonEscape : MonoBehaviour {
 
-    public Button arrowButton;
-    public Image bars;
     public int zRotate;
     public int speed;
     private float rotation;
-    public GameObject escapeLayer;
-    public TMP_Text text;
-    public GameObject rock;
+    private bool escape;
 
+    public TMP_Text text;
+    public Button arrowButton;
+    public Image bars;
+
+    public GameObject rock;
+    public GameObject sceneChanger;
+    public GameObject escapeLayer;
     private GameObject player;
+
     private PlayerController playerController;
 
     private void Start() {
@@ -23,11 +27,12 @@ public class PrisonEscape : MonoBehaviour {
 
     void Update() {
 
-        Debug.Log(playerController.pickedUpRock);
-
         if (!playerController.pickedUpRock) {
-            Debug.Log("!pickeduprock");
-            text.text = "Pick up the rock to try and escape..";
+            if (escape) {
+                text.text = "You win! Travel to the window to escape!";
+            } else {
+                text.text = "Pick up the rock to try and escape..";
+            }
         }
 
         if (playerController.pickedUpRock) {
@@ -36,7 +41,6 @@ public class PrisonEscape : MonoBehaviour {
             text.text = "Click the arrow to throw the rock at the window!";
             arrowButton.gameObject.SetActive(true);
             bars.gameObject.SetActive(true);
-            playerController.pickedUpRock = false;
         }
 
         arrowButton.onClick.AddListener(onClick);
@@ -54,11 +58,12 @@ public class PrisonEscape : MonoBehaviour {
     void onClick() {
 
         if (rotation >= 0.6087614 && rotation <= 0.7933534) {
-            Debug.Log("Shot made!");
+            escape = true;
+            playerController.pickedUpRock = false;
             escapeLayer.SetActive(true);
             arrowButton.gameObject.SetActive(false);
             bars.gameObject.SetActive(false);
-            text.text = "You win! Travel to the window to escape!";
+            sceneChanger.SetActive(true);
         } else {
             text.text = "Try again!";
         }
