@@ -86,11 +86,22 @@ public class DialogueSystem : MonoBehaviour
             return;
         }
         NarrativeEngine.SetFlag(flag, ((Ink.Runtime.IntValue) value).value);
+        TakeAction(flag, ((Ink.Runtime.IntValue) value).value);
     }
 
     private void LoadFlagsToStory(Story story) {
         foreach(KeyValuePair<NarrativeEngine.Flag, int> flag in NarrativeEngine.GetAllUsedFlags()) {
             story.variablesState.SetGlobal(flag.Key.ToString(), Ink.Runtime.IntValue.Create(flag.Value));
         }
+    }
+
+    private static void TakeAction(NarrativeEngine.Flag flag, int value) {
+        /*if(NarrativeGuide._instance == null)
+            return;
+        
+        if(flag == NarrativeEngine.Flag.MET_KING){
+            if(NarrativeEngine.GetFlag(NarrativeEngine.Flag.MET_COMMANDER)==-1)
+                NarrativeGuide._instance.SetInterestTransform(null);
+        }*/
     }
 }
