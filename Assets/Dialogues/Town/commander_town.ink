@@ -16,7 +16,7 @@ I have information that the king might be hiding some Xurinium.
 + [I have heard that rumour too] If it's true, we cannot let such a self-centered man have the power that he does. We need a better governance, a more systematic one run by principles.
 
 + [What's Xurinium?]
-    It's the mythical metal that's supposed to be stronger than any substance. Weapons cast with even traces of Xurinium would make them ten times stronger and durable.
+    It's the mythical metal that's supposed to be stronger than any substance. Weapons cast with even traces of Xurinium are ten times stronger and durable.
     ++ [Why would the king hide it, if it can help his own army?]
     Among other things, it is also believed to have youth regeneration properties. I have a feeling our vain king is holding it for his self-obsessions.
  

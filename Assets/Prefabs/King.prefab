@@ -265,8 +265,10 @@ GameObject:
   - component: {fileID: 853103825290200710}
   - component: {fileID: 853103825290200711}
   - component: {fileID: 853103825290200728}
+  - component: {fileID: 9195917519899460878}
+  - component: {fileID: 5831186793481565171}
   m_Layer: 0
-  m_Name: TownLeader
+  m_Name: King
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -413,6 +415,37 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.3, y: 0.47}
   m_EdgeRadius: 0
+--- !u!58 &9195917519899460878
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 853103825290200729}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.83
+--- !u!114 &5831186793481565171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 853103825290200729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef29a83e1647a744bbe3c3ad26c07511, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterId: king_town
+  characterName: King
+  inkJSON: {fileID: 4900000, guid: fe5f97acda39ada41876496e9b0757d3, type: 3}
 --- !u!1 &853103825403412382
 GameObject:
   m_ObjectHideFlags: 0
