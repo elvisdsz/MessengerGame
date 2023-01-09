@@ -18,6 +18,9 @@ public class PlayerController : MonoBehaviour {
 
     public Animator animator;
 
+    public GameObject steve;
+    public bool needSteve;
+
 
     private void Start() {
 
@@ -39,6 +42,12 @@ public class PlayerController : MonoBehaviour {
     }
 
     void Update() {
+
+        if (needSteve) {
+            steve.SetActive(true);
+        } else {
+            steve.SetActive(false);
+        }
 
         if (NPCFruitPick.finishedFoodIntro) {
             canvas.SetActive(true);
