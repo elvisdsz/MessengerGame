@@ -47,7 +47,8 @@ public class MineTree : MonoBehaviour {
                     playerController.sliderMining.value = mineValue;
                 } else {
                     mineValue = 0;
-                    playerHunger.foodSlider.value += 25;
+                    //playerHunger.energySlider.value += 25;
+                    playerHunger.food += 10;
 
                     //wait = true;
                     //playerController.wait = true;

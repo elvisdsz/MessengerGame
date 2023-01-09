@@ -4,28 +4,28 @@ using TMPro;
 
 public class PlayerHunger : MonoBehaviour {
 
-    public Slider healthSlider;
-    public Slider foodSlider;
+    public Slider energySlider;
+    public int food;
     public TMP_Text foodText;
-    public int speed;
+    public GameObject pressEText;
+    public int hungerSpeed;
     public float playerSpeed;
 
     void Update() {
 
-        playerSpeed = foodSlider.value / 100;
-        foodSlider.value -= speed * Time.deltaTime;
-        foodText.text = ((int)(foodSlider.value)).ToString();
+        playerSpeed = energySlider.value / 100;
+        energySlider.value -= hungerSpeed * Time.deltaTime;
+        foodText.text = food.ToString();
 
-        /*
-        if (foodSlider.value < 25) {
-            healthSlider.value -= speed * Time.deltaTime;
+        if (energySlider.value < 10) {
+            pressEText.SetActive(true);
+        } else {
+            pressEText.SetActive(false);
         }
-        if (foodSlider.value == 0) {
-            healthSlider.value -= 2 * (speed * Time.deltaTime);
+
+        if (Input.GetKeyDown(KeyCode.E) && food >= 5) {
+            food -= 5;
+            energySlider.value += 5;
         }
-        if (foodSlider.value > 75) {
-            healthSlider.value += speed * Time.deltaTime;
-        }
-        */
     }
 }

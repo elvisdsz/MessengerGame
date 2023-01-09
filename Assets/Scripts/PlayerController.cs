@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour {
 
     public Slider sliderMining;
     public GameObject pressP;
-
+    public GameObject canvas;
     private static GameObject instance;
     private PlayerHunger playerHunger;
 
@@ -39,6 +39,10 @@ public class PlayerController : MonoBehaviour {
     }
 
     void Update() {
+
+        if (NPCFruitPick.finishedFoodIntro) {
+            canvas.SetActive(true);
+        }
 
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
