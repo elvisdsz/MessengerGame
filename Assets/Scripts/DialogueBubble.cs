@@ -8,11 +8,14 @@ public class DialogueBubble : MonoBehaviour
 {
     [SerializeField] private GameObject speechObject;
     [SerializeField] private SpriteRenderer speechBackgroundSprite;
+    [SerializeField] private GameObject arrowObject;
     [SerializeField] private TextMeshProUGUI speechTextObject;
+    [SerializeField] private TextMeshProUGUI charNameObject;
     [SerializeField] private GameObject choicesObject;
     [SerializeField] private List<TextMeshProUGUI> choiceTextObjList;
 
     private string characterId;
+    private string characterName;
     private Vector2 pivot;
     private Vector2 padding = new Vector2(0.6f, 0.4f);
     private Vector2 choicePadding = new Vector2(1.2f, 0.4f);
@@ -55,9 +58,10 @@ public class DialogueBubble : MonoBehaviour
         }
     }
 
-    public void Initialize(string characterId, Transform pivotTransform, Transform playerTransform, Story story)
+    public void Initialize(string characterId, string characterName, Transform pivotTransform, Transform playerTransform, Story story)
     {
         this.characterId = characterId;
+        this.characterName = characterName;
         this.pivot = pivotTransform.position;
         this.npcTransform = pivotTransform;
         this.playerTransform = playerTransform;
@@ -69,12 +73,15 @@ public class DialogueBubble : MonoBehaviour
 
     private void Speak(string speech)
     {
+        charNameObject.SetText(characterName);
         speechTextObject.SetText(speech);
         speechTextObject.ForceMeshUpdate();
         Vector2 textSize = speechTextObject.GetRenderedValues(false);
         Vector2 rectSize = textSize + padding;
         speechBackgroundSprite.size = rectSize;
-        speechObject.transform.position = pivot + new Vector2(0f, (npcTransform.localScale.y*0.75f)+rectSize.y/2);
+        charNameObject.transform.parent.transform.localPosition = new Vector2(0f, (speechBackgroundSprite.size.y/2f));
+        arrowObject.transform.localPosition = new Vector2(0f, -(speechBackgroundSprite.size.y/2f));
+        speechObject.transform.position = pivot + new Vector2(0f, (npcTransform.localScale.y*0.35f)+rectSize.y/2f);
         StartCoroutine(TypeLetters(speech));
     }
 

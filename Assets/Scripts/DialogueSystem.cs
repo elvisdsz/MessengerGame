@@ -50,7 +50,7 @@ public class DialogueSystem : MonoBehaviour
         DialogueBubble dialogueBubble = Instantiate(dialogueBubblePrefab).GetComponent<DialogueBubble>();
         Story story = new Story(convJSON.text);
         StartListening(story);
-        dialogueBubble.Initialize(characterId, npcTransform, playerTransform, story);
+        dialogueBubble.Initialize(characterId, characterName, npcTransform, playerTransform, story);
         currentConvs.Add(characterId, dialogueBubble);
         conversationOn = true;
     }
