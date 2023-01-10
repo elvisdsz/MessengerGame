@@ -833,8 +833,17 @@ MonoBehaviour:
   sounds:
   - name: BGM
     clip: {fileID: 8300000, guid: 91f820c11898b6e4882bd836c8c4e753, type: 3}
-    volume: 0.69
-    volumeVariance: 0.42
+    volume: 0.42
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 1
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Eating
+    clip: {fileID: 8300000, guid: e4290dee18ce4714f82104e12d76b337, type: 3}
+    volume: 0.42
+    volumeVariance: 0
     pitch: 1
     pitchVariance: 0
     loop: 1
@@ -847,13 +856,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1613933531}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.128613, y: -6.760231, z: 0.49761775}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.101386, y: 0.739769, z: -0.15657046}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_Father: {fileID: 4950100882894567294}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1715615929 stripped
 Transform:
