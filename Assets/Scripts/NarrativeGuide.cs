@@ -33,7 +33,7 @@ public class NarrativeGuide : MonoBehaviour
     void Update()
     {
         if(interestTransform == null)
-            return;
+            pointer.gameObject.SetActive(false);
 
         screenPos = _camera.WorldToViewportPoint(interestTransform.position); //get viewport positions
  

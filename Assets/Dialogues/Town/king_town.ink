@@ -1,5 +1,6 @@
 INCLUDE ../globals.ink
 
+{JOINED_ENEMY==0: ->on_return}
 {MET_KING>0: ->met_before}
 
 ...
@@ -25,7 +26,7 @@ By the way, Steve has joined us as an intern for the messaging department. Go fi
 
 =on_return
 {KING_ESCAPED==0: Get back to your work->END}
-{KING_ESCAPED>1: ->END}
+{KING_ESCAPED>0: ->END}
 ...
 Hello, messenger! You are back!
 Did you deliver the message to the other town leader?

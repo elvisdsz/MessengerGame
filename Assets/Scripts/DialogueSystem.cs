@@ -96,12 +96,65 @@ public class DialogueSystem : MonoBehaviour
     }
 
     private static void TakeAction(NarrativeEngine.Flag flag, int value) {
-        /*if(NarrativeGuide._instance == null)
-            return;
+        if(NarrativeGuide._instance != null)
+            NarrativeGuide._instance.SetInterestTransform(null);
         
         if(flag == NarrativeEngine.Flag.MET_KING){
-            if(NarrativeEngine.GetFlag(NarrativeEngine.Flag.MET_COMMANDER)==-1)
+            if(NarrativeEngine.GetFlag(NarrativeEngine.Flag.MET_COMMANDER)<0) {
+                NarrativeGuide._instance.gameObject.SetActive(false); // FIXME: Commander Transform
                 NarrativeGuide._instance.SetInterestTransform(null);
-        }*/
+            } else if(NarrativeEngine.GetFlag(NarrativeEngine.Flag.MET_COMPANION)==-1) {
+                NarrativeGuide._instance.gameObject.SetActive(false); // FIXME: Steve Transform
+                NarrativeGuide._instance.SetInterestTransform(null);
+            }
+        }
+
+        // TRANSITIONS
+        else if(flag == NarrativeEngine.Flag.PLAYER_BETRAYED || flag == NarrativeEngine.Flag.COMPANION_BETRAYED) {
+            if(NarrativeEngine.GetFlag(NarrativeEngine.Flag.PLAYER_BETRAYED)==0 && NarrativeEngine.GetFlag(NarrativeEngine.Flag.COMPANION_BETRAYED)==0) {
+                // ALL GOOD
+                SceneSwitcher.ChangeToScene(2);
+            } else if(NarrativeEngine.GetFlag(NarrativeEngine.Flag.PLAYER_BETRAYED)==1 && NarrativeEngine.GetFlag(NarrativeEngine.Flag.COMPANION_BETRAYED)==0) {
+                // Steve betrayed player
+                SceneSwitcher.ChangeToScene(3);
+            } else if(NarrativeEngine.GetFlag(NarrativeEngine.Flag.PLAYER_BETRAYED)==0 && NarrativeEngine.GetFlag(NarrativeEngine.Flag.COMPANION_BETRAYED)==1) {
+                // Player betrayed Steve
+                // TODO: *************** Kill Steve gameobject here
+                SceneSwitcher.ChangeToScene(2);
+            }
+        }
+
+        else if(flag == NarrativeEngine.Flag.INVITED_TO_MEET_ENEMY_LEADER && value == 1) {
+            SceneSwitcher.ChangeToScene(4); //FIXME
+        }
+
+        else if(flag == NarrativeEngine.Flag.JOINED_ENEMY && value == 1) {
+            // TODO: Trigger Ending 1
+        }
+
+        else if(flag == NarrativeEngine.Flag.JOINED_ENEMY && value == 0) {
+            SceneSwitcher.ChangeToScene(0);
+        }
+
+        else if(flag == NarrativeEngine.Flag.COMMANDER_INFORMED) {
+            if(value == 1) {
+                // TODO: Trigger Ending 3
+            } else {
+                // TODO: Trigger Ending 2
+            }
+        }
+
+        else if(flag == NarrativeEngine.Flag.KING_ESCAPED) {
+            if(value == 1) {
+                // TODO: King escape - transition scene
+            } else {
+                // TODO: Trigger Ending 2
+            }
+
+            if(NarrativeEngine.GetFlag(NarrativeEngine.Flag.COMMANDER_INFORMED)<0) {
+                NarrativeGuide._instance.gameObject.SetActive(false); // FIXME: Commander Transform
+            }
+        }
+
     }
 }

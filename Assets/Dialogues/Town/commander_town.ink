@@ -1,5 +1,6 @@
 INCLUDE ../globals.ink
 ...
+{JOINED_ENEMY==0: ->on_return}
 {MET_COMMANDER>0: ->met_before}
 
 ->meet
@@ -35,7 +36,11 @@ What information do you have for me?
 +[The enemy will attack today]
     Are you sure?
     Then we must prepare. Go back to a safer place now. I'll take up from here
-    {KING_ESCAPED==0: COMMANDER_INFORMED=1}
-    {KING_ESCAPED==1: COMMANDER_INFORMED=2}
+    {KING_ESCAPED==0: 
+        ~COMMANDER_INFORMED=1
+    }
+    {KING_ESCAPED==1:
+        ~COMMANDER_INFORMED=2
+    }
 -
 ->END
