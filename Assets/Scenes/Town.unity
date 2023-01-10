@@ -260,6 +260,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3698538105794239176, guid: 8796bdb48040a0247855feb50ce6ad9a, type: 3}
+      propertyPath: gateTown
+      value: 
+      objectReference: {fileID: 2007660194}
     - target: {fileID: 3698538105863648681, guid: 8796bdb48040a0247855feb50ce6ad9a, type: 3}
       propertyPath: m_Type
       value: 1
@@ -465,7 +469,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &279403503
 Transform:
   m_ObjectHideFlags: 0
@@ -1033,6 +1037,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3433187196543010450, guid: 4ebd33221ca993c4ebf7313a5ab9e1aa, type: 3}
+      propertyPath: m_Name
+      value: gateTown
+      objectReference: {fileID: 0}
+    - target: {fileID: -3433187196543010450, guid: 4ebd33221ca993c4ebf7313a5ab9e1aa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -1892783850870909347, guid: 4ebd33221ca993c4ebf7313a5ab9e1aa, type: 3}
       propertyPath: m_Name
       value: Town
@@ -1514,6 +1526,10 @@ PrefabInstance:
     - target: {fileID: 3771296451342275056, guid: 176e2654eaceeb94786277d41e5b6cea, type: 3}
       propertyPath: m_TagString
       value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 7253831684592472424, guid: 176e2654eaceeb94786277d41e5b6cea, type: 3}
+      propertyPath: speed
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 8134658312734751154, guid: 176e2654eaceeb94786277d41e5b6cea, type: 3}
       propertyPath: m_RootOrder

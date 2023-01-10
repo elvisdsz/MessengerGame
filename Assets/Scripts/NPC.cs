@@ -21,6 +21,8 @@ public class NPC : MonoBehaviour {
     private PlayerHunger playerHunger;
     private PlayerController playerController;
 
+    public GameObject gateTown;
+
     public void Start() {
 
         player = GameObject.Find("Player");
@@ -63,6 +65,7 @@ public class NPC : MonoBehaviour {
                     finished = true;
                     playerController.getSteve();
                     NarrativeEngine.SetFlag(NarrativeEngine.Flag.TUT_COMPLETE, 1);
+                    playerController.addGate(gateTown);
                 } else {
                     text2ArrayIndex += 1;
                 }

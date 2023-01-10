@@ -16,6 +16,8 @@ public class DialogueSystem : MonoBehaviour
     [SerializeField] private GameObject eventSystemPrefab;
 
     private bool conversationOn = false;
+    private PlayerController playerController;
+
 
     void Awake() // singleton
     {
@@ -30,6 +32,7 @@ public class DialogueSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         playerTransform = GameObject.Find("Player").transform; // TODO: Optimize
 
         if(GameObject.Find("EventSystem") == null)
@@ -119,6 +122,14 @@ public class DialogueSystem : MonoBehaviour
                     NarrativeGuide._instance.SetInterestTransform(steve.transform);
             }
         } else if(flag == NarrativeEngine.Flag.MET_COMPANION) {
+            GameObject player;
+            GameObject steve;
+            player = GameObject.Find("Player");
+            steve = GameObject.Find("Steve");
+            PlayerController playerController = player.GetComponent<PlayerController>();
+            Steve steveScript = steve.GetComponent<Steve>();
+            steveScript.followPlayer = true;
+            playerController.removeGate();
             NarrativeGuide._instance.SetInterestTransform(null);
         }
 
@@ -132,7 +143,10 @@ public class DialogueSystem : MonoBehaviour
                 SceneSwitcher.ChangeToScene(3);
             } else if(NarrativeEngine.GetFlag(NarrativeEngine.Flag.PLAYER_BETRAYED)==0 && NarrativeEngine.GetFlag(NarrativeEngine.Flag.COMPANION_BETRAYED)==1) {
                 // Player betrayed Steve
-                // TODO: *************** Kill Steve gameobject here
+                GameObject player;
+                player = GameObject.Find("Player");
+                PlayerController playerController = player.GetComponent<PlayerController>();
+                playerController.removeSteve();
                 SceneSwitcher.ChangeToScene(2);
             }
         }

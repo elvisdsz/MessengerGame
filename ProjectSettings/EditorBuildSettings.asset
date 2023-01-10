@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TownFire.unity
     guid: 8a0511bf848705547974a78bdefb1876
+  - enabled: 1
+    path: Assets/Scenes/Endings.unity
+    guid: 14029f19129702748abc9e3b52628a32
+  - enabled: 1
+    path: Assets/Scenes/Camp_EnemyArea.unity
+    guid: c6756b66919a1da48a3f5a3eef469f21
   m_configObjects: {}

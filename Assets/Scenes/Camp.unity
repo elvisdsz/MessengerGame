@@ -875,6 +875,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneChangerPrison
       objectReference: {fileID: 0}
+    - target: {fileID: 7604412041417014029, guid: c8fcc73e41ec7974680da7920bf89023, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8fcc73e41ec7974680da7920bf89023, type: 3}
 --- !u!1001 &1683496615

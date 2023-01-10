@@ -17,8 +17,6 @@ public class PlayerController : MonoBehaviour {
     private static GameObject instance;
     private PlayerHunger playerHunger;
 
-    public GameObject gate;
-
     public Animator animator;
 
     //public GameObject commander;
@@ -52,19 +50,30 @@ public class PlayerController : MonoBehaviour {
         steve.SetActive(true);
         Vector2 playerPos = this.transform.position;
 
-        if (SceneManager.GetActiveScene().name.Equals("Town")) {
-            steve.transform.position = new Vector2(16, -9.5f);
+        if (NarrativeEngine.GetFlag(NarrativeEngine.Flag.MET_COMPANION) == 1) {
+            if (SceneManager.GetActiveScene().name.Equals("Town")) {
+                steve.transform.position = new Vector2(playerPos.x + 1, playerPos.y);
+            } else {
+                steve.transform.position = new Vector2(playerPos.x + 1, playerPos.y);
+                Debug.Log("Steve not town");
+            }
         } else {
-            steve.transform.position = new Vector2(playerPos.x + 1, playerPos.y);
-        }     
-        Debug.Log("Steve Pos: " + steve.transform.position);
+            steve.transform.position = new Vector2(16, -9.5f);
+        }
     }
 
     public void removeSteve() {
+
         steve.SetActive(false);
     }
 
+    public void addGate(GameObject gate) {
+        
+        gate.SetActive(true);
+    }
+
     public void removeGate() {
+        GameObject gate = GameObject.Find("gateTown");
         Destroy(gate);
     }
 
