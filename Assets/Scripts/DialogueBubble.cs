@@ -73,6 +73,11 @@ public class DialogueBubble : MonoBehaviour
 
     private void Speak(string speech)
     {
+        if(speech == null || speech.Length == 0) {
+            FinishConversation();
+            return;
+        }
+        
         charNameObject.SetText(characterName);
         speechTextObject.SetText(speech);
         speechTextObject.ForceMeshUpdate();
