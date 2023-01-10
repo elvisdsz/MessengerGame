@@ -28,11 +28,13 @@ public class NarrativeGuide : MonoBehaviour {
     // Start is called before the first frame update
     void Start()
     {
+        /*
         if (SceneManager.GetActiveScene().name.Equals("Town")) {
             commander = GameObject.Find("Commander");
             npc = GameObject.Find("NPC");
             Debug.Log("town starts");
         }
+        */
 
         _camera = Camera.main;
     }
@@ -41,6 +43,7 @@ public class NarrativeGuide : MonoBehaviour {
     void Update()
     {
 
+        /*
         if (SceneManager.GetActiveScene().name.Equals("Town")) {
             commander = GameObject.Find("Commander");
             npc = GameObject.Find("NPC");
@@ -51,6 +54,7 @@ public class NarrativeGuide : MonoBehaviour {
                 interestTransform = npc.transform;
             }
         }
+        */
         
 
         if(interestTransform == null)

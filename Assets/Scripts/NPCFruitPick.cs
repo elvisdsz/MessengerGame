@@ -61,6 +61,10 @@ public class NPCFruitPick : MonoBehaviour {
 
     void Update() {
 
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            Accept();
+        }
+
         if (decline) {
             npcText.text = textList[0].ToString();
         } else {

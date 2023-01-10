@@ -89,6 +89,16 @@ public class NPC : MonoBehaviour {
 
     void Update() {
 
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            Accept();
+        }
+
+        /*
+        if (!finished) {
+            NarrativeGuide._instance.SetInterestTransform(this.transform);
+        }
+        */
+
         if (finishedIntro && NPCFruitPick.finishedFoodIntro) {
             if (needFood) {
                 npcText.text = textList2[0].ToString();
@@ -96,6 +106,7 @@ public class NPC : MonoBehaviour {
                 npcText.text = textList2[text2ArrayIndex].ToString();
             }
         } else {
+            
             npcText.text = textList[textArrayIndex].ToString();
         }
     }
