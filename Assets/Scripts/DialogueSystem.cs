@@ -105,11 +105,15 @@ public class DialogueSystem : MonoBehaviour
         
         if(flag == NarrativeEngine.Flag.MET_KING){
             if(NarrativeEngine.GetFlag(NarrativeEngine.Flag.MET_COMMANDER)<0) {
-                NarrativeGuide._instance.gameObject.SetActive(false); // FIXME: Commander Transform
-                NarrativeGuide._instance.SetInterestTransform(null);
+                GameObject commander = GameObject.Find("Commander");
+                if(commander != null)
+                    //NarrativeGuide._instance.gameObject.SetActive(false); // FIXME: Commander Transform
+                    NarrativeGuide._instance.SetInterestTransform(commander.transform);
             } else if(NarrativeEngine.GetFlag(NarrativeEngine.Flag.MET_COMPANION)==-1) {
-                NarrativeGuide._instance.gameObject.SetActive(false); // FIXME: Steve Transform
-                NarrativeGuide._instance.SetInterestTransform(null);
+                GameObject steve = GameObject.Find("Steve");
+                if(steve != null)
+                    //NarrativeGuide._instance.gameObject.SetActive(false); // FIXME: Steve Transform
+                    NarrativeGuide._instance.SetInterestTransform(steve.transform);
             }
         }
 
@@ -156,7 +160,9 @@ public class DialogueSystem : MonoBehaviour
             }
 
             if(NarrativeEngine.GetFlag(NarrativeEngine.Flag.COMMANDER_INFORMED)<0) {
-                NarrativeGuide._instance.gameObject.SetActive(false); // FIXME: Commander Transform
+                GameObject commander = GameObject.Find("Commander");
+                if(commander != null)
+                    NarrativeGuide._instance.gameObject.SetActive(false); // FIXME: Commander Transform
             }
         }
 
