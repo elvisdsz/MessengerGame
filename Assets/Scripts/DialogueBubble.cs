@@ -74,6 +74,7 @@ public class DialogueBubble : MonoBehaviour
     private void Speak(string speech)
     {
         if(speech == null || speech.Length == 0) {
+            Debug.Log("no dialogues to show - "+characterId);
             FinishConversation();
             return;
         }

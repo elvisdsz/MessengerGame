@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Ink.Runtime;
+using System.Linq;
 
 public class DialogueSystem : MonoBehaviour
 {
@@ -44,8 +45,10 @@ public class DialogueSystem : MonoBehaviour
     }
 
     public void StartConversation(string characterId, string characterName, Transform npcTransform, TextAsset convJSON) {
-        if(conversationOn || currentConvs.ContainsKey(characterId)) // forced to run max 1 conv at a time
+        if(currentConvs.Count>0 || currentConvs.ContainsKey(characterId)) {// forced to run max 1 conv at a time
+            Debug.Log("Already running dialogue -- "+conversationOn+"  -- "+currentConvs.Count);
             return;
+        }
 
         DialogueBubble dialogueBubble = Instantiate(dialogueBubblePrefab).GetComponent<DialogueBubble>();
         Story story = new Story(convJSON.text);
@@ -115,6 +118,8 @@ public class DialogueSystem : MonoBehaviour
                     //NarrativeGuide._instance.gameObject.SetActive(false); // FIXME: Steve Transform
                     NarrativeGuide._instance.SetInterestTransform(steve.transform);
             }
+        } else if(flag == NarrativeEngine.Flag.MET_COMPANION) {
+            NarrativeGuide._instance.SetInterestTransform(null);
         }
 
         // TRANSITIONS
@@ -155,8 +160,6 @@ public class DialogueSystem : MonoBehaviour
         else if(flag == NarrativeEngine.Flag.KING_ESCAPED) {
             if(value == 1) {
                 // TODO: King escape - transition scene
-            } else {
-                // TODO: Trigger Ending 2
             }
 
             if(NarrativeEngine.GetFlag(NarrativeEngine.Flag.COMMANDER_INFORMED)<0) {

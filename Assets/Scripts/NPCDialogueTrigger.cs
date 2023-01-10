@@ -22,6 +22,7 @@ public class NPCDialogueTrigger : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D collider) {
+        Debug.Log("Entered trigger - "+gameObject.name);
         dialogueSystem.StartConversation(characterId, characterName, transform, inkJSON);
     }
 }
