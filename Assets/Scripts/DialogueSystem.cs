@@ -122,14 +122,18 @@ public class DialogueSystem : MonoBehaviour
                     NarrativeGuide._instance.SetInterestTransform(steve.transform);
             }
         } else if(flag == NarrativeEngine.Flag.MET_COMPANION) {
+
+            /*
             GameObject player;
-            GameObject steve;
             player = GameObject.Find("Player");
-            steve = GameObject.Find("Steve");
             PlayerController playerController = player.GetComponent<PlayerController>();
+            playerController.removeGate();
+            */
+
+            GameObject steve;
+            steve = GameObject.Find("Steve");
             Steve steveScript = steve.GetComponent<Steve>();
             steveScript.followPlayer = true;
-            playerController.removeGate();
             NarrativeGuide._instance.SetInterestTransform(null);
         }
 
@@ -148,7 +152,13 @@ public class DialogueSystem : MonoBehaviour
                 PlayerController playerController = player.GetComponent<PlayerController>();
                 playerController.removeSteve();
                 SceneSwitcher.ChangeToScene(2);
-            }
+            } 
+        }
+        else if(flag == NarrativeEngine.Flag.LOYALTY_TEST_RESULT && value>-1) {
+            GameObject player;
+            player = GameObject.Find("Player");
+            PlayerController playerController = player.GetComponent<PlayerController>();
+            playerController.removeGate();
         }
 
         else if(flag == NarrativeEngine.Flag.INVITED_TO_MEET_ENEMY_LEADER && value == 1) {
