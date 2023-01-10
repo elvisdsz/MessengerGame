@@ -61,6 +61,8 @@ public class NPCFruitPick : MonoBehaviour {
 
     void Update() {
 
+        //AudioManager.instance.Play("music name");
+
         if (Input.GetKeyDown(KeyCode.Space)) {
             Accept();
         }

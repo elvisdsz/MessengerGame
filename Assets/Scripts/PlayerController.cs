@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
@@ -45,9 +46,16 @@ public class PlayerController : MonoBehaviour {
 
     void Update() {
 
-        if (NPC.finished) {
-            needSteve = true;    
+        /*
+        if (SceneManager.GetActiveScene().name.Equals("Town")) {
+            commander = GameObject.Find("Commander");
+            Debug.Log("town starts");
+
+            if (NPC.finished) {
+                needSteve = true;
+            }
         } 
+        */
 
         if (needSteve) {
             steve.SetActive(true);
