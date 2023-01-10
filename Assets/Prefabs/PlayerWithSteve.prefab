@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 7253831684592472424}
   m_Layer: 0
   m_Name: Steve
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2024,8 +2024,6 @@ MonoBehaviour:
   pressP: {fileID: 8134658311442042579}
   canvas: {fileID: 8134658312151460307}
   animator: {fileID: 8134658312734751152}
-  commander: {fileID: 0}
-  king: {fileID: 0}
   steve: {fileID: 3771296451342275056}
   needSteve: 1
 --- !u!50 &8134658312734751166

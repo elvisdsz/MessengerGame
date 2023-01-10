@@ -44,7 +44,7 @@ public class NPC : MonoBehaviour {
         textList2.Add("I can't believe you'd help our King..");
         textList2.Add("The King has been draining this town with resources");
         textList2.Add("I hope he vanishes!");
-        textList2.Add("Anyway, I think Steve needs your help. Goodluck..");
+        textList2.Add("Anyway, I think the Commander needs your help. Goodluck..");
     }
 
     public void Accept () {

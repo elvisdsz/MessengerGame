@@ -25,6 +25,7 @@ public class SceneSwitcher : MonoBehaviour {
         if (scene == 0) {
             SceneManager.LoadScene(scene);
             player.gameObject.transform.position = new Vector2(14.1f, -5.5f);
+            //DialogueSystem.ClearDialogues();
         }
         // OuterTown
         if (scene == 1) {
@@ -34,7 +35,8 @@ public class SceneSwitcher : MonoBehaviour {
         // Camp
         if (scene == 2) {
             SceneManager.LoadScene(scene);
-            player.gameObject.transform.position = new Vector2(8f, -11.8f);
+            player.gameObject.transform.position = new Vector2(8f, -9f);
+            DialogueSystem._instance.ClearDialogues();
         }
         // Prison
         if (scene == 3) {
@@ -56,6 +58,7 @@ public class SceneSwitcher : MonoBehaviour {
         if (scene == 6) {
             SceneManager.LoadScene(scene);
             player.gameObject.transform.position = new Vector2(8f, -9f);
+            DialogueSystem._instance.ClearDialogues();
         }
     }
 
