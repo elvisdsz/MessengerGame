@@ -1,9 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class NarrativeGuide : MonoBehaviour
-{
+public class NarrativeGuide : MonoBehaviour {
+
     public static NarrativeGuide _instance;
     public Transform interestTransform;
     public Transform pointer;
@@ -11,13 +10,16 @@ public class NarrativeGuide : MonoBehaviour
     private Vector2 onScreenPos;
     private float max;
     private Camera _camera;
-    
+
+    private GameObject commander;
+    private GameObject npc;
 
     void Awake()
     {
-        if(_instance == null) {
+        DontDestroyOnLoad(gameObject);
+        if (_instance == null) {
             _instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
         else
             Destroy(gameObject);
@@ -26,12 +28,31 @@ public class NarrativeGuide : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (SceneManager.GetActiveScene().name.Equals("Town")) {
+            commander = GameObject.Find("Commander");
+            npc = GameObject.Find("NPC");
+            Debug.Log("town starts");
+        }
+
         _camera = Camera.main;
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if (SceneManager.GetActiveScene().name.Equals("Town")) {
+            commander = GameObject.Find("Commander");
+            npc = GameObject.Find("NPC");
+            if (NPC.finished) {
+                interestTransform = commander.transform;
+            } else {
+                //Debug.Log("Here");
+                interestTransform = npc.transform;
+            }
+        }
+        
+
         if(interestTransform == null)
             return;
 

@@ -10,8 +10,8 @@ public class NPC : MonoBehaviour {
     public TMP_Text npcText;
     public static int textArrayIndex;
     public static int text2ArrayIndex;
-    //public static bool decline;
     public static bool finishedIntro;
+    public static bool finished;
     private bool needFood;
 
     ArrayList textList;
@@ -48,9 +48,9 @@ public class NPC : MonoBehaviour {
         if (finishedIntro && NPCFruitPick.finishedFoodIntro) {
             int size = textList2.Count;
             if (text2ArrayIndex == 1) {
-                if (playerHunger.food >= 40) {
+                if (playerHunger.food >= 10) {
                     text2ArrayIndex += 1;
-                    playerHunger.food -= 40;
+                    playerHunger.food -= 10;
                     needFood = false;
                 } else {
                     needFood = true;
@@ -58,6 +58,7 @@ public class NPC : MonoBehaviour {
             } else {
                 if (text2ArrayIndex + 1 == size) {
                     dialogueBox.SetActive(false);
+                    finished = true;
                 } else {
                     text2ArrayIndex += 1;
                 }

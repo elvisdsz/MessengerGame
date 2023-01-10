@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour {
 
     public Animator animator;
 
+    public GameObject commander;
+    public GameObject king;
     public GameObject steve;
     public bool needSteve;
 
@@ -42,6 +44,10 @@ public class PlayerController : MonoBehaviour {
     }
 
     void Update() {
+
+        if (NPC.finished) {
+            needSteve = true;    
+        } 
 
         if (needSteve) {
             steve.SetActive(true);

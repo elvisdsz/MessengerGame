@@ -8,7 +8,7 @@ public class PlayerHunger : MonoBehaviour {
     public int food;
     public TMP_Text foodText;
     public GameObject pressEText;
-    public int hungerSpeed;
+    public float hungerSpeed;
     public float playerSpeed;
 
     void Update() {
@@ -25,7 +25,7 @@ public class PlayerHunger : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.E) && food >= 5) {
             food -= 5;
-            energySlider.value += 5;
+            energySlider.value += 20;
         }
     }
 }
