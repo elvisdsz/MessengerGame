@@ -19,7 +19,7 @@ public class NarrativeEngine : MonoBehaviour
     }*/
 
     public enum Flag {
-        TEST_FLAG,
+        TEST_FLAG, TUT_COMPLETE,
         MET_KING, MET_COMMANDER, MET_COMPANION,
         LOYALTY_TEST_RESULT, PLAYER_BETRAYED, COMPANION_BETRAYED,
         INVITED_TO_MEET_ENEMY_LEADER, JOINED_ENEMY,

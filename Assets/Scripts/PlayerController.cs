@@ -44,24 +44,39 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+    public void getSteve() {
+
+        steve.SetActive(true);
+        Vector2 playerPos = this.transform.position;
+
+        if (SceneManager.GetActiveScene().name.Equals("Town")) {
+            steve.transform.position = new Vector2(16, -9.5f);
+        } else {
+            steve.transform.position = new Vector2(playerPos.x + 1, playerPos.y);
+        }     
+        Debug.Log("Steve Pos: " + steve.transform.position);
+    }
+
+    public void removeSteve() {
+        steve.SetActive(false);
+    }
+
     void Update() {
 
         /*
-        if (SceneManager.GetActiveScene().name.Equals("Town")) {
-            commander = GameObject.Find("Commander");
-            Debug.Log("town starts");
-
-            if (NPC.finished) {
-                needSteve = true;
-            }
-        } 
-        */
+        if (NPC.finished) {
+            needSteve = true;
+            steve.transform.position = new Vector2(2, -2.7f);
+            Debug.Log("Finished");
+            Debug.Log("Steve Pos: " + steve.transform.position);
+        }
 
         if (needSteve) {
             steve.SetActive(true);
         } else {
             steve.SetActive(false);
         }
+        */
 
         if (NPCFruitPick.finishedFoodIntro) {
             canvas.SetActive(true);

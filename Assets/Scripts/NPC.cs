@@ -19,11 +19,13 @@ public class NPC : MonoBehaviour {
 
     private GameObject player;
     private PlayerHunger playerHunger;
+    private PlayerController playerController;
 
     public void Start() {
 
         player = GameObject.Find("Player");
         playerHunger = player.GetComponent<PlayerHunger>();
+        playerController = player.GetComponent<PlayerController>();
 
         textList = new ArrayList();
         textArrayIndex = 1;
@@ -59,6 +61,8 @@ public class NPC : MonoBehaviour {
                 if (text2ArrayIndex + 1 == size) {
                     dialogueBox.SetActive(false);
                     finished = true;
+                    playerController.getSteve();
+                    NarrativeEngine.SetFlag(NarrativeEngine.Flag.TUT_COMPLETE, 1);
                 } else {
                     text2ArrayIndex += 1;
                 }

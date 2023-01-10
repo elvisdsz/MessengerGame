@@ -465,7 +465,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &279403503
 Transform:
   m_ObjectHideFlags: 0
@@ -833,10 +833,10 @@ MonoBehaviour:
   sounds:
   - name: BGM
     clip: {fileID: 8300000, guid: 91f820c11898b6e4882bd836c8c4e753, type: 3}
-    volume: 0
-    volumeVariance: 0
+    volume: 0.24
+    volumeVariance: 0.2
     pitch: 0
-    pitchVariance: 0
+    pitchVariance: 0.18
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
@@ -1487,11 +1487,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3771296451342274957, guid: 176e2654eaceeb94786277d41e5b6cea, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.05
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3771296451342274957, guid: 176e2654eaceeb94786277d41e5b6cea, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.86
+      value: -2.7
       objectReference: {fileID: 0}
     - target: {fileID: 3771296451342275056, guid: 176e2654eaceeb94786277d41e5b6cea, type: 3}
       propertyPath: m_IsActive
@@ -1507,11 +1507,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8134658312734751154, guid: 176e2654eaceeb94786277d41e5b6cea, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.453086
+      value: 15.23
       objectReference: {fileID: 0}
     - target: {fileID: 8134658312734751154, guid: 176e2654eaceeb94786277d41e5b6cea, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.170009
+      value: -7.5
       objectReference: {fileID: 0}
     - target: {fileID: 8134658312734751154, guid: 176e2654eaceeb94786277d41e5b6cea, type: 3}
       propertyPath: m_LocalPosition.z
