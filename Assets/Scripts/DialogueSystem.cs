@@ -152,7 +152,7 @@ public class DialogueSystem : MonoBehaviour
         }
 
         else if(flag == NarrativeEngine.Flag.INVITED_TO_MEET_ENEMY_LEADER && value == 1) {
-            SceneSwitcher.ChangeToScene(4); //FIXME
+            SceneSwitcher.ChangeToScene(6); //FIXME
         }
 
         else if(flag == NarrativeEngine.Flag.JOINED_ENEMY && value == 1) {
