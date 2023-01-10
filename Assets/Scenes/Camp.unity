@@ -489,6 +489,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1213569124204666830, guid: dd2e85c2ec5b10449ab8974ce6cf314c, type: 3}
+      propertyPath: m_BodyType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1213569124204666832, guid: dd2e85c2ec5b10449ab8974ce6cf314c, type: 3}
       propertyPath: m_Name
       value: EnemySoldier (2)
@@ -562,6 +566,10 @@ PrefabInstance:
     - target: {fileID: 1213569124204666829, guid: dd2e85c2ec5b10449ab8974ce6cf314c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1213569124204666830, guid: dd2e85c2ec5b10449ab8974ce6cf314c, type: 3}
+      propertyPath: m_BodyType
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1213569124204666832, guid: dd2e85c2ec5b10449ab8974ce6cf314c, type: 3}
       propertyPath: m_Name
@@ -796,6 +804,10 @@ PrefabInstance:
     - target: {fileID: 1213569124204666829, guid: dd2e85c2ec5b10449ab8974ce6cf314c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1213569124204666830, guid: dd2e85c2ec5b10449ab8974ce6cf314c, type: 3}
+      propertyPath: m_BodyType
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1213569124204666832, guid: dd2e85c2ec5b10449ab8974ce6cf314c, type: 3}
       propertyPath: m_Name
