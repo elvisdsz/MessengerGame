@@ -12,6 +12,8 @@ public class MineTree : MonoBehaviour {
     private float timer;
     private bool wait;
 
+    public GameObject objectLayer;
+
 
     void Start() {
         player = GameObject.Find("Player");
@@ -36,6 +38,10 @@ public class MineTree : MonoBehaviour {
     }
 
     void Update() {
+
+        if (NPC.finished) {
+            Destroy(objectLayer);
+        }
 
         if (atTree) {
 

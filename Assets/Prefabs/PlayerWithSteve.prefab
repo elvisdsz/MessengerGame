@@ -923,7 +923,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 6
+  m_SortingOrder: 16
   m_Sprite: {fileID: 997276002, guid: 3d2237da8429cec4893c3912c784de37, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1571,7 +1571,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 6
+  m_SortingOrder: 16
   m_Sprite: {fileID: 2064811441, guid: 70d7f808569bea141a9b416caae55df0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1971,7 +1971,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 15
   m_Sprite: {fileID: 1245321299, guid: d6159e9935579a04b84311ceea6c2218, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2024,6 +2024,8 @@ MonoBehaviour:
   pressP: {fileID: 8134658311442042579}
   canvas: {fileID: 8134658312151460307}
   animator: {fileID: 8134658312734751152}
+  commander: {fileID: 0}
+  king: {fileID: 0}
   steve: {fileID: 3771296451342275056}
   needSteve: 1
 --- !u!50 &8134658312734751166
