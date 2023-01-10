@@ -74,6 +74,15 @@ public class DialogueSystem : MonoBehaviour
             conversationOn = false;
     }
 
+    public void ClearDialogues() {
+        foreach(KeyValuePair<string, DialogueBubble> conv in currentConvs) {
+            try {
+                EndConversation(conv.Key);
+            } catch {}
+        }
+        currentConvs.Clear();
+    }
+
     public bool IsConversationOn() {
         return conversationOn;
     }
@@ -205,4 +214,5 @@ public class DialogueSystem : MonoBehaviour
         }
 
     }
+
 }
