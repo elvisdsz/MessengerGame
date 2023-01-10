@@ -833,11 +833,11 @@ MonoBehaviour:
   sounds:
   - name: BGM
     clip: {fileID: 8300000, guid: 91f820c11898b6e4882bd836c8c4e753, type: 3}
-    volume: 0.24
-    volumeVariance: 0.2
-    pitch: 0
-    pitchVariance: 0.18
-    loop: 0
+    volume: 0.69
+    volumeVariance: 0.42
+    pitch: 1
+    pitchVariance: 0
+    loop: 1
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
 --- !u!4 &1613933533

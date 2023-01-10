@@ -63,20 +63,8 @@ public class PlayerController : MonoBehaviour {
 
     void Update() {
 
-        /*
-        if (NPC.finished) {
-            needSteve = true;
-            steve.transform.position = new Vector2(2, -2.7f);
-            Debug.Log("Finished");
-            Debug.Log("Steve Pos: " + steve.transform.position);
-        }
+        AudioManager.instance.Play("BGM");
 
-        if (needSteve) {
-            steve.SetActive(true);
-        } else {
-            steve.SetActive(false);
-        }
-        */
 
         if (NPCFruitPick.finishedFoodIntro) {
             canvas.SetActive(true);

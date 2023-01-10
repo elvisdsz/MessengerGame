@@ -97,12 +97,6 @@ public class NPC : MonoBehaviour {
             Accept();
         }
 
-        /*
-        if (!finished) {
-            NarrativeGuide._instance.SetInterestTransform(this.transform);
-        }
-        */
-
         if (finishedIntro && NPCFruitPick.finishedFoodIntro) {
             if (needFood) {
                 npcText.text = textList2[0].ToString();
