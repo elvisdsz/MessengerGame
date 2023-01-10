@@ -1,5 +1,6 @@
 INCLUDE ../globals.ink
 {TUT_COMPLETE<0: ->END}
+{ MET_KING<1: ->END }
 { MET_COMPANION<1: ->meet | ->test_loyalty}
 
 =meet
