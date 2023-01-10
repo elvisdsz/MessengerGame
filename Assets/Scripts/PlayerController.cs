@@ -17,10 +17,12 @@ public class PlayerController : MonoBehaviour {
     private static GameObject instance;
     private PlayerHunger playerHunger;
 
+    public GameObject gate;
+
     public Animator animator;
 
-    public GameObject commander;
-    public GameObject king;
+    //public GameObject commander;
+    //public GameObject king;
     public GameObject steve;
     public bool needSteve;
 
@@ -28,6 +30,7 @@ public class PlayerController : MonoBehaviour {
     private void Start() {
 
         playerHunger = gameObject.GetComponent<PlayerHunger>();
+        AudioManager.instance.Play("BGM");
 
         DontDestroyOnLoad(gameObject);
         if (instance == null)
@@ -61,9 +64,11 @@ public class PlayerController : MonoBehaviour {
         steve.SetActive(false);
     }
 
-    void Update() {
+    public void removeGate() {
+        Destroy(gate);
+    }
 
-        AudioManager.instance.Play("BGM");
+    void Update() {
 
 
         if (NPCFruitPick.finishedFoodIntro) {
