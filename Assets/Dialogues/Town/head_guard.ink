@@ -12,6 +12,7 @@ Before you go any further, I need to talk to you both... separately.
 
 =steve_betrays
 Messenger, we have got to know about your intentions to help the enemy. We cannot let you go any further.
+_
 ~COMPANION_BETRAYED=0
 ~PLAYER_BETRAYED=1
 ->END
@@ -31,11 +32,13 @@ Did you get to talk to Steve much?
     I had a doubt! Thanks!
     You can carry on with your job
     We will take care of Steve
+    _
     ~COMPANION_BETRAYED=1
     ~PLAYER_BETRAYED=0
 + [Steve is a pretty chill non-spy guy. I can vouch for him.]
     Hmm.. Okay
     You both can go ahead
+    _
     ~COMPANION_BETRAYED=0
     ~PLAYER_BETRAYED=0
 -

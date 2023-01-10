@@ -44,9 +44,11 @@ We are prepared to march before dawn.
     I could tell that you are a smart one.
     Our commander would need the areas where the influential families live - especially the ones that suport the king.
     We will need to stop them from helping the king escape while we seize the palace
+    _
     ~JOINED_ENEMY=1
 + [ I cannot betray my town. I'd like to leave now ]
     As you wish, messenger. I'll arrange for a guard to safely drop you back.
+    _
     ~JOINED_ENEMY=0
 -
 
