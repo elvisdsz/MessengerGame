@@ -17,7 +17,7 @@ public class Endings : MonoBehaviour
     {
         Debug.Log("Ending loadded");
         story = new Story(convJSON.text);
-        StartCoroutine(NextSentence());
+        //StartCoroutine(NextSentence());
     }
 
     // Update is called once per frame
@@ -43,7 +43,7 @@ public class Endings : MonoBehaviour
             textObj.SetText(text);
             //Debug.Log("TEXT: "+text);
             animator.SetTrigger("FadeIn");
-
+            yield return new WaitForSeconds(2f);
             isTyping = false;
         } else {
             EndScene();

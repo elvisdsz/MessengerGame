@@ -1,6 +1,6 @@
 INCLUDE ../globals.ink
-
-{ MET_COMPANION<1: ->meet | ->END}
+{TUT_COMPLETE<0: ->END}
+{ MET_COMPANION<1: ->meet | ->test_loyalty}
 
 =meet
 ...
@@ -26,6 +26,7 @@ Yes, sir.
 ->END
 
 =test_loyalty
+{ LOYALTY_TEST_RESULT>-1: ->thank_for_saving}
 ...
 What do you think of the king?
 + [Seems like a nice guy] Well, I've heard quite different
@@ -49,7 +50,7 @@ What side would you take if you had a choice?
 ->END
 
 =thank_for_saving
-...
+{PLAYER_BETRAYED==0 && COMPANION_BETRAYED==0: ...| ->END}
 I overheard the guard ask you about me. Thank you standing up for me.
 Since you've been kind. I'd like to share a piece of advice
 Don't trust any leaders. All the ones I have known have some hidden greed to amass power or wealth

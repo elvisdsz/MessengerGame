@@ -23,7 +23,7 @@ public class NarrativeEngine : MonoBehaviour
         MET_KING, MET_COMMANDER, MET_COMPANION,
         LOYALTY_TEST_RESULT, PLAYER_BETRAYED, COMPANION_BETRAYED,
         INVITED_TO_MEET_ENEMY_LEADER, JOINED_ENEMY,
-        KING_ESCAPED, COMMANDER_INFORMED, 
+        KING_ESCAPED, COMMANDER_INFORMED, ENDING,
     }
 
     public static void SetFlag(Flag flagName, int value) {

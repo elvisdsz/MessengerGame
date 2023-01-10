@@ -142,31 +142,42 @@ public class DialogueSystem : MonoBehaviour
         }
 
         else if(flag == NarrativeEngine.Flag.JOINED_ENEMY && value == 1) {
-            // TODO: Trigger Ending 1
+            NarrativeEngine.SetFlag(NarrativeEngine.Flag.ENDING, 1);
+            SceneSwitcher.ChangeToScene(5); //FIXME
         }
 
         else if(flag == NarrativeEngine.Flag.JOINED_ENEMY && value == 0) {
             SceneSwitcher.ChangeToScene(0);
         }
 
-        else if(flag == NarrativeEngine.Flag.COMMANDER_INFORMED) {
+        else if(flag == NarrativeEngine.Flag.COMMANDER_INFORMED && (value==1 || value==2)) {
             if(value == 1) {
-                // TODO: Trigger Ending 3
+                NarrativeEngine.SetFlag(NarrativeEngine.Flag.ENDING, 3);
+                SceneSwitcher.ChangeToScene(5); //FIXME
             } else {
-                // TODO: Trigger Ending 2
+                NarrativeEngine.SetFlag(NarrativeEngine.Flag.ENDING, 2);
+                SceneSwitcher.ChangeToScene(5); //FIXME
             }
         }
 
         else if(flag == NarrativeEngine.Flag.KING_ESCAPED) {
             if(value == 1) {
-                // TODO: King escape - transition scene
+                GameObject.Destroy(GameObject.Find("King"));
             }
 
             if(NarrativeEngine.GetFlag(NarrativeEngine.Flag.COMMANDER_INFORMED)<0) {
                 GameObject commander = GameObject.Find("Commander");
                 if(commander != null)
-                    NarrativeGuide._instance.gameObject.SetActive(false); // FIXME: Commander Transform
+                    NarrativeGuide._instance.gameObject.SetActive(commander); // FIXME: Commander Transform
+            } else if(NarrativeEngine.GetFlag(NarrativeEngine.Flag.COMMANDER_INFORMED) == 0) {
+                NarrativeEngine.SetFlag(NarrativeEngine.Flag.ENDING, 4);
+                SceneSwitcher.ChangeToScene(5); //FIXME
             }
+        }
+
+        else if(flag == NarrativeEngine.Flag.COMMANDER_INFORMED && value==0 && NarrativeEngine.GetFlag(NarrativeEngine.Flag.KING_ESCAPED) == 0) {
+            NarrativeEngine.SetFlag(NarrativeEngine.Flag.ENDING, 4);
+            SceneSwitcher.ChangeToScene(5); //FIXME
         }
 
     }

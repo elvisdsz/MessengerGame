@@ -1,4 +1,5 @@
 INCLUDE ../globals.ink
+{TUT_COMPLETE<0: ->END}
 ...
 {JOINED_ENEMY==0: ->on_return}
 {MET_COMMANDER>0: ->met_before}

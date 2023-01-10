@@ -1,5 +1,5 @@
 INCLUDE ../globals.ink
-
+{TUT_COMPLETE<0: ->END}
 {JOINED_ENEMY==0: ->END}
 {LOYALTY_TEST_RESULT==-1: ->END}
 
