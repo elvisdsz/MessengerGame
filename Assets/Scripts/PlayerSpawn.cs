@@ -18,15 +18,10 @@ public class PlayerSpawn : MonoBehaviour {
             this.gameObject.transform.position = new Vector2(14.1f, -5.5f);
             toTown = false;
         }
-        if (toOuterTown && fromTown) {
+        if (toOuterTown) {
             this.gameObject.transform.position = new Vector2(8, -10);
             toOuterTown = false;
             fromTown = false;
-        }
-        if (toOuterTown && fromCamp) {
-            this.gameObject.transform.position = new Vector2(7.92f, -2.9f);
-            toOuterTown = false;
-            fromCamp = false;
         }
         if (toCamp) {
             this.gameObject.transform.position = new Vector2(8f, -11.8f);

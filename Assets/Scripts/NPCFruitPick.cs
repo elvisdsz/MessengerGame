@@ -48,6 +48,7 @@ public class NPCFruitPick : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D other) {
 
         if (other.gameObject.name == "Player" && NPC.finishedIntro) {
+            Debug.Log("player hit");
             dialogueBox.SetActive(true);
         }
     }

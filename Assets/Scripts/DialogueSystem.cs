@@ -16,6 +16,8 @@ public class DialogueSystem : MonoBehaviour
     [SerializeField] private GameObject eventSystemPrefab;
 
     private bool conversationOn = false;
+    private PlayerController playerController;
+
 
     void Awake() // singleton
     {
@@ -30,6 +32,7 @@ public class DialogueSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         playerTransform = GameObject.Find("Player").transform; // TODO: Optimize
 
         if(GameObject.Find("EventSystem") == null)
@@ -119,6 +122,18 @@ public class DialogueSystem : MonoBehaviour
                     NarrativeGuide._instance.SetInterestTransform(steve.transform);
             }
         } else if(flag == NarrativeEngine.Flag.MET_COMPANION) {
+
+            /*
+            GameObject player;
+            player = GameObject.Find("Player");
+            PlayerController playerController = player.GetComponent<PlayerController>();
+            playerController.removeGate();
+            */
+
+            GameObject steve;
+            steve = GameObject.Find("Steve");
+            Steve steveScript = steve.GetComponent<Steve>();
+            steveScript.followPlayer = true;
             NarrativeGuide._instance.SetInterestTransform(null);
         }
 
@@ -132,9 +147,18 @@ public class DialogueSystem : MonoBehaviour
                 SceneSwitcher.ChangeToScene(3);
             } else if(NarrativeEngine.GetFlag(NarrativeEngine.Flag.PLAYER_BETRAYED)==0 && NarrativeEngine.GetFlag(NarrativeEngine.Flag.COMPANION_BETRAYED)==1) {
                 // Player betrayed Steve
-                // TODO: *************** Kill Steve gameobject here
+                GameObject player;
+                player = GameObject.Find("Player");
+                PlayerController playerController = player.GetComponent<PlayerController>();
+                playerController.removeSteve();
                 SceneSwitcher.ChangeToScene(2);
-            }
+            } 
+        }
+        else if(flag == NarrativeEngine.Flag.LOYALTY_TEST_RESULT && value>-1) {
+            GameObject player;
+            player = GameObject.Find("Player");
+            PlayerController playerController = player.GetComponent<PlayerController>();
+            playerController.removeGate();
         }
 
         else if(flag == NarrativeEngine.Flag.INVITED_TO_MEET_ENEMY_LEADER && value == 1) {

@@ -648,8 +648,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 7604412041417014026, guid: c8fcc73e41ec7974680da7920bf89023, type: 3}
+      propertyPath: scene
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7604412041417014026, guid: c8fcc73e41ec7974680da7920bf89023, type: 3}
       propertyPath: sceneTo
-      value: OuterTown
+      value: Camp
       objectReference: {fileID: 0}
     - target: {fileID: 7604412041417014026, guid: c8fcc73e41ec7974680da7920bf89023, type: 3}
       propertyPath: sceneName

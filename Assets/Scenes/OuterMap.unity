@@ -2455,75 +2455,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.3880825, y: 0.5515356}
   m_EdgeRadius: 0
---- !u!1001 &952827406
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 7604412041417014026, guid: c8fcc73e41ec7974680da7920bf89023, type: 3}
-      propertyPath: scene
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7604412041417014026, guid: c8fcc73e41ec7974680da7920bf89023, type: 3}
-      propertyPath: sceneTo
-      value: Camp
-      objectReference: {fileID: 0}
-    - target: {fileID: 7604412041417014026, guid: c8fcc73e41ec7974680da7920bf89023, type: 3}
-      propertyPath: sceneName
-      value: OuterTown
-      objectReference: {fileID: 0}
-    - target: {fileID: 7604412041417014027, guid: c8fcc73e41ec7974680da7920bf89023, type: 3}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7604412041417014027, guid: c8fcc73e41ec7974680da7920bf89023, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 7.97
-      objectReference: {fileID: 0}
-    - target: {fileID: 7604412041417014027, guid: c8fcc73e41ec7974680da7920bf89023, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -2.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7604412041417014027, guid: c8fcc73e41ec7974680da7920bf89023, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.47287038
-      objectReference: {fileID: 0}
-    - target: {fileID: 7604412041417014027, guid: c8fcc73e41ec7974680da7920bf89023, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7604412041417014027, guid: c8fcc73e41ec7974680da7920bf89023, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7604412041417014027, guid: c8fcc73e41ec7974680da7920bf89023, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7604412041417014027, guid: c8fcc73e41ec7974680da7920bf89023, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7604412041417014027, guid: c8fcc73e41ec7974680da7920bf89023, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7604412041417014027, guid: c8fcc73e41ec7974680da7920bf89023, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7604412041417014027, guid: c8fcc73e41ec7974680da7920bf89023, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7604412041417014029, guid: c8fcc73e41ec7974680da7920bf89023, type: 3}
-      propertyPath: m_Name
-      value: SceneChangerCamp
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c8fcc73e41ec7974680da7920bf89023, type: 3}
 --- !u!114 &974293580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3332,7 +3263,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1322331270
 MonoBehaviour:
@@ -3770,6 +3701,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7972278946505208452, guid: 0e5df0a306bc9894d9deff6abe9fbd9f, type: 3}
+      propertyPath: m_BodyType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7972278946505208454, guid: 0e5df0a306bc9894d9deff6abe9fbd9f, type: 3}
       propertyPath: m_Name
       value: Guard (1)
@@ -4403,6 +4338,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7972278946505208452, guid: 0e5df0a306bc9894d9deff6abe9fbd9f, type: 3}
+      propertyPath: m_BodyType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7972278946505208454, guid: 0e5df0a306bc9894d9deff6abe9fbd9f, type: 3}
       propertyPath: m_Name
       value: Guard
@@ -5310,13 +5249,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4645570852893754116, guid: d5ed9a6ef0ee11544a0394b63c0d109e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6461146181562044989, guid: d5ed9a6ef0ee11544a0394b63c0d109e, type: 3}
+      propertyPath: m_BodyType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6461146181562044991, guid: d5ed9a6ef0ee11544a0394b63c0d109e, type: 3}
       propertyPath: m_Name
       value: FruitPickNPC
       objectReference: {fileID: 0}
     - target: {fileID: 6461146181562044994, guid: d5ed9a6ef0ee11544a0394b63c0d109e, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6461146181562044994, guid: d5ed9a6ef0ee11544a0394b63c0d109e, type: 3}
       propertyPath: m_LocalPosition.x

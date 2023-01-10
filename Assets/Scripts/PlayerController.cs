@@ -19,8 +19,8 @@ public class PlayerController : MonoBehaviour {
 
     public Animator animator;
 
-    public GameObject commander;
-    public GameObject king;
+    //public GameObject commander;
+    //public GameObject king;
     public GameObject steve;
     public bool needSteve;
 
@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour {
     private void Start() {
 
         playerHunger = gameObject.GetComponent<PlayerHunger>();
+        AudioManager.instance.Play("BGM");
 
         DontDestroyOnLoad(gameObject);
         if (instance == null)
@@ -49,21 +50,34 @@ public class PlayerController : MonoBehaviour {
         steve.SetActive(true);
         Vector2 playerPos = this.transform.position;
 
-        if (SceneManager.GetActiveScene().name.Equals("Town")) {
-            steve.transform.position = new Vector2(16, -9.5f);
+        if (NarrativeEngine.GetFlag(NarrativeEngine.Flag.MET_COMPANION) == 1) {
+            if (SceneManager.GetActiveScene().name.Equals("Town")) {
+                steve.transform.position = new Vector2(playerPos.x + 1, playerPos.y);
+            } else {
+                steve.transform.position = new Vector2(playerPos.x + 1, playerPos.y);
+                Debug.Log("Steve not town");
+            }
         } else {
-            steve.transform.position = new Vector2(playerPos.x + 1, playerPos.y);
-        }     
-        Debug.Log("Steve Pos: " + steve.transform.position);
+            steve.transform.position = new Vector2(16, -9.5f);
+        }
     }
 
     public void removeSteve() {
+
         steve.SetActive(false);
     }
 
-    void Update() {
+    public void addGate(GameObject gate) {
+        
+        gate.SetActive(true);
+    }
 
-        AudioManager.instance.Play("BGM");
+    public void removeGate() {
+        GameObject gate = GameObject.Find("gateTown");
+        Destroy(gate);
+    }
+
+    void Update() {
 
 
         if (NPCFruitPick.finishedFoodIntro) {

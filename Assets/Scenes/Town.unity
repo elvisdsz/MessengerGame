@@ -260,6 +260,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3698538105794239176, guid: 8796bdb48040a0247855feb50ce6ad9a, type: 3}
+      propertyPath: gateTown
+      value: 
+      objectReference: {fileID: 2007660194}
     - target: {fileID: 3698538105863648681, guid: 8796bdb48040a0247855feb50ce6ad9a, type: 3}
       propertyPath: m_Type
       value: 1
@@ -841,12 +845,12 @@ MonoBehaviour:
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
   - name: Eating
-    clip: {fileID: 8300000, guid: e4290dee18ce4714f82104e12d76b337, type: 3}
+    clip: {fileID: 8300000, guid: 666350567de4e534eb5713eb726208a1, type: 3}
     volume: 0.42
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
-    loop: 1
+    loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
 --- !u!4 &1613933533
@@ -1033,6 +1037,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3433187196543010450, guid: 4ebd33221ca993c4ebf7313a5ab9e1aa, type: 3}
+      propertyPath: m_Name
+      value: gateTown
+      objectReference: {fileID: 0}
+    - target: {fileID: -3433187196543010450, guid: 4ebd33221ca993c4ebf7313a5ab9e1aa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -1892783850870909347, guid: 4ebd33221ca993c4ebf7313a5ab9e1aa, type: 3}
       propertyPath: m_Name
       value: Town
@@ -1087,6 +1099,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: -2695619058785784247, guid: 4ebd33221ca993c4ebf7313a5ab9e1aa, type: 3}
+--- !u!1 &2007660194 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -3433187196543010450, guid: 4ebd33221ca993c4ebf7313a5ab9e1aa, type: 3}
+  m_PrefabInstance: {fileID: 2007660193}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2092499615
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1510,6 +1527,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
+    - target: {fileID: 7253831684592472424, guid: 176e2654eaceeb94786277d41e5b6cea, type: 3}
+      propertyPath: speed
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 8134658312734751154, guid: 176e2654eaceeb94786277d41e5b6cea, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1554,6 +1575,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8134658312734751155, guid: 176e2654eaceeb94786277d41e5b6cea, type: 3}
+      propertyPath: gate
+      value: 
+      objectReference: {fileID: 2007660194}
     - target: {fileID: 8134658312734751155, guid: 176e2654eaceeb94786277d41e5b6cea, type: 3}
       propertyPath: king
       value: 
