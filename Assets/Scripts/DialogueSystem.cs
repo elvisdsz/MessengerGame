@@ -211,22 +211,29 @@ public class DialogueSystem : MonoBehaviour
 
         else if(flag == NarrativeEngine.Flag.KING_ESCAPED) {
             if(value == 1) {
+                _instance.ClearDialogues();
                 GameObject.Destroy(GameObject.Find("King"));
             }
 
             if(NarrativeEngine.GetFlag(NarrativeEngine.Flag.COMMANDER_INFORMED)<0) {
                 GameObject commander = GameObject.Find("Commander");
                 if(commander != null)
-                    NarrativeGuide._instance.gameObject.SetActive(commander); // FIXME: Commander Transform
+                    NarrativeGuide._instance.gameObject.SetActive(commander);
             } else if(NarrativeEngine.GetFlag(NarrativeEngine.Flag.COMMANDER_INFORMED) == 0) {
                 NarrativeEngine.SetFlag(NarrativeEngine.Flag.ENDING, 4);
                 SceneSwitcher.ChangeToScene(5); //FIXME
             }
         }
 
-        else if(flag == NarrativeEngine.Flag.COMMANDER_INFORMED && value==0 && NarrativeEngine.GetFlag(NarrativeEngine.Flag.KING_ESCAPED) == 0) {
-            NarrativeEngine.SetFlag(NarrativeEngine.Flag.ENDING, 4);
-            SceneSwitcher.ChangeToScene(5); //FIXME
+        else if(flag == NarrativeEngine.Flag.COMMANDER_INFORMED && value==0) {
+            if(NarrativeEngine.GetFlag(NarrativeEngine.Flag.KING_ESCAPED) > -1) {
+                NarrativeEngine.SetFlag(NarrativeEngine.Flag.ENDING, 4);
+                SceneSwitcher.ChangeToScene(5); //FIXME
+            } else {
+                GameObject king = GameObject.Find("King");
+                if(king != null)
+                    NarrativeGuide._instance.gameObject.SetActive(king);
+            }
         }
 
     }

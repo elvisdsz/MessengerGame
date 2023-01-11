@@ -1,4 +1,5 @@
 INCLUDE ../globals.ink
+{INVITED_TO_MEET_ENEMY_LEADER==1:->END}
 ...
 You don't seem to be from here.
 What brings to our gates?

@@ -20,9 +20,9 @@ public class Endings : MonoBehaviour
         LoadFlagsToStory(story);
         AudioManager.instance.StopAudio("BGM");
         if(NarrativeEngine.GetFlag(NarrativeEngine.Flag.ENDING) == 4)
-            AudioManager.instance.StopAudio("EndingGood");
+            AudioManager.instance.Play("EndingGood");
         else
-            AudioManager.instance.StopAudio("EndingSad");
+            AudioManager.instance.Play("EndingSad");
         //StartCoroutine(NextSentence());
     }
 

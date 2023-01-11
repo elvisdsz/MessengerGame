@@ -28,16 +28,17 @@ The incompetency and greed of that man is ruining our town.
 ->END
 
 =on_return
-{COMMANDER_INFORMED>0: ->END}
+{COMMANDER_INFORMED>-1: ->END}
 I see that you are back from your job
 What information do you have for me?
 +[Nothing really]
     Maybe, no news from the enemy is good news
     I can spend some time on planning what we could do about the incompetency of leadership in this town
+    ~COMMANDER_INFORMED=0
 +[The enemy will attack today]
     Are you sure?
     Then we must prepare. Go back to a safer place now. I'll take up from here
-    {KING_ESCAPED==0: 
+    {KING_ESCAPED!=1: 
         ~COMMANDER_INFORMED=1
     }
     {KING_ESCAPED==1:

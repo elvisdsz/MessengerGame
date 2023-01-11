@@ -34,14 +34,17 @@ Did you deliver the message to the other town leader?
 + [ No, I couldn't reach the leader ] That's a shame
     We can try again later.
     You haven't been very useful. Get back to your postal deliveries now
+    ~KING_ESCAPED=0
     ->END
 -What did he say?
 + [ He is preparing for an attack on our town ]
-    My goodness! I had a hunch but I am not prepared for this
-    Messenger, step out of the room for a bit. I need to collect my thoughts before calling a meeting.
+    My goodness! I had a hunch but I am not prepared for this,
+    messenger. Go away now. I need to collect my thoughts before calling a meeting.
+    '
     ~KING_ESCAPED=1
 + [ He will consider our request to bring peace ]
     That is wonderful news. Thank you for your service to this town. You are dismissed.
+    '
     ~KING_ESCAPED=0
 -
 ->END
