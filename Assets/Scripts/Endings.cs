@@ -17,7 +17,7 @@ public class Endings : MonoBehaviour
     {
         Debug.Log("Ending loadded");
         story = new Story(convJSON.text);
-        LoadFlagsToStory(story);
+        StartListening(story);
         AudioManager.instance.StopAudio("BGM");
         if(NarrativeEngine.GetFlag(NarrativeEngine.Flag.ENDING) == 4)
             AudioManager.instance.Play("EndingGood");
@@ -68,7 +68,16 @@ public class Endings : MonoBehaviour
         }
     }
 
-    public static void VariableChanged(string name, Ink.Runtime.Object value) {
+    public void StartListening(Story story) {
+        LoadFlagsToStory(story);
+        story.variablesState.variableChangedEvent += VariableChanged;
+    }
+
+    public void StopListening(Story story) {
+        story.variablesState.variableChangedEvent -= VariableChanged;
+    }
+
+    public void VariableChanged(string name, Ink.Runtime.Object value) {
         NarrativeEngine.Flag flag;
         if (!NarrativeEngine.Flag.TryParse(name, out flag)) {
             Debug.LogWarning("Ink variable does not exist as a narative engine flag.");
@@ -78,6 +87,7 @@ public class Endings : MonoBehaviour
         int intVal = ((Ink.Runtime.IntValue) value).value;
         
         if(flag == NarrativeEngine.Flag.END1REACHED && intVal==0) {
+            StopListening(story);
             SceneSwitcher.ChangeToScene(4);
         }
     }
