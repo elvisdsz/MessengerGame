@@ -4,6 +4,7 @@ The messenger, I presume. Greetings!
 + [Yes. Thank you, sir.]
 -What news do you come bearing?
 + [I come with a message from my king]
+Okay. What is it?
 ++[He wants to end the enemity between our two towns and build a friendship.]
 -Ha ha ha
 Does this friendship include sharing of resources? Like Xurinium?
