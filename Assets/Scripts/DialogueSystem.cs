@@ -130,6 +130,18 @@ public class DialogueSystem : MonoBehaviour
                     //NarrativeGuide._instance.gameObject.SetActive(false); // FIXME: Steve Transform
                     NarrativeGuide._instance.SetInterestTransform(steve.transform);
             }
+        } else if(flag == NarrativeEngine.Flag.MET_COMMANDER){
+            if(NarrativeEngine.GetFlag(NarrativeEngine.Flag.MET_KING)<0) {
+                GameObject king = GameObject.Find("King");
+                if(king != null)
+                    //NarrativeGuide._instance.gameObject.SetActive(false); // FIXME: Commander Transform
+                    NarrativeGuide._instance.SetInterestTransform(king.transform);
+            } else if(NarrativeEngine.GetFlag(NarrativeEngine.Flag.MET_COMPANION)==-1) {
+                GameObject steve = GameObject.Find("Steve");
+                if(steve != null)
+                    //NarrativeGuide._instance.gameObject.SetActive(false); // FIXME: Steve Transform
+                    NarrativeGuide._instance.SetInterestTransform(steve.transform);
+            }
         } else if(flag == NarrativeEngine.Flag.MET_COMPANION) {
 
             /*

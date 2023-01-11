@@ -64,8 +64,11 @@ public class NPC : MonoBehaviour {
                     dialogueBox.SetActive(false);
                     finished = true;
                     playerController.getSteve();
-                    NarrativeEngine.SetFlag(NarrativeEngine.Flag.TUT_COMPLETE, 1);
-                    playerController.addGate(gateTown);
+                    if(NarrativeEngine.GetFlag(NarrativeEngine.Flag.TUT_COMPLETE) != 1) {
+                        NarrativeGuide._instance.SetInterestTransform(GameObject.Find("Commander").transform);
+                        NarrativeEngine.SetFlag(NarrativeEngine.Flag.TUT_COMPLETE, 1);
+                        playerController.addGate(gateTown);
+                    }
                 } else {
                     text2ArrayIndex += 1;
                 }
