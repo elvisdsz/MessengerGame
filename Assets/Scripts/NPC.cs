@@ -49,6 +49,8 @@ public class NPC : MonoBehaviour {
 
     public void Accept () {
 
+        Debug.Log("Static int NPC: " + text2ArrayIndex);
+
         if (finishedIntro && NPCFruitPick.finishedFoodIntro) {
             int size = textList2.Count;
             if (text2ArrayIndex == 1) {

@@ -183,6 +183,10 @@ public class DialogueSystem : MonoBehaviour
         }
 
         else if(flag == NarrativeEngine.Flag.INVITED_TO_MEET_ENEMY_LEADER && value == 1) {
+            GameObject player;
+            player = GameObject.Find("Player");
+            PlayerController playerController = player.GetComponent<PlayerController>();
+            playerController.removeSteve();
             SceneSwitcher.ChangeToScene(6); //FIXME
         }
 

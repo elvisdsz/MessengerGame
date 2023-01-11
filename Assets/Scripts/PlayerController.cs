@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour {
 
     private void Start() {
 
+        
         playerHunger = gameObject.GetComponent<PlayerHunger>();
         AudioManager.instance.Play("BGM");
 
@@ -48,6 +49,7 @@ public class PlayerController : MonoBehaviour {
     public void getSteve() {
 
         steve.SetActive(true);
+        needSteve = true;
         Vector2 playerPos = this.transform.position;
 
         if (NarrativeEngine.GetFlag(NarrativeEngine.Flag.MET_COMPANION) == 1) {
@@ -64,7 +66,9 @@ public class PlayerController : MonoBehaviour {
 
     public void removeSteve() {
 
+        needSteve = false;
         steve.SetActive(false);
+        //Destroy(steve);
     }
 
     public void addGate(GameObject gate) {
@@ -79,6 +83,13 @@ public class PlayerController : MonoBehaviour {
 
     void Update() {
 
+        
+        if (needSteve) {
+            steve.SetActive(true);
+        } else {
+            steve.SetActive(false);
+        }
+        
 
         if (NPCFruitPick.finishedFoodIntro) {
             canvas.SetActive(true);
