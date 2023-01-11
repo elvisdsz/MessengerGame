@@ -20,7 +20,7 @@ public class NPCFruitPick : MonoBehaviour {
         textArrayIndex = 1;
         textList.Add("Come back when you're ready!");
         textList.Add("I'm guessing you need me to teach you to pick and eat fruit?");
-        textList.Add("Walk up to any tree, press P to pick the fruit. Press E to eat the fruit");
+        textList.Add("Walk up to any tree, press and hold P to pick the fruit. Press E to eat the fruit");
         textList.Add("If you don't eat for a while, your energy will drop and you'll slow down");
         textList.Add("The others in town will be appreciative if you bring some back. There's not much food around anymore..");
         textList.Add("See you soon!");

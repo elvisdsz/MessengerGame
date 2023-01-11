@@ -23,7 +23,7 @@ public class PlayerHunger : MonoBehaviour {
             pressEText.SetActive(false);
         }
 
-        if (Input.GetKeyDown(KeyCode.E) && food >= 5) {
+        if (Input.GetKeyDown(KeyCode.E) && food >= 5 && energySlider.value < 95) {
             AudioManager.instance.Play("Eating");
             food -= 5;
             energySlider.value += 20;

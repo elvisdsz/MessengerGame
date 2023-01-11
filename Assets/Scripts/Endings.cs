@@ -17,12 +17,19 @@ public class Endings : MonoBehaviour
     {
         Debug.Log("Ending loadded");
         story = new Story(convJSON.text);
+        LoadFlagsToStory(story);
+        AudioManager.instance.StopAudio("BGM");
+        if(NarrativeEngine.GetFlag(NarrativeEngine.Flag.ENDING) == 4)
+            AudioManager.instance.StopAudio("EndingGood");
+        else
+            AudioManager.instance.StopAudio("EndingSad");
         //StartCoroutine(NextSentence());
     }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("isTyping -- "+isTyping);
         if(!isTyping && Input.GetKeyDown(KeyCode.Space))
             StartCoroutine(NextSentence());
     }
@@ -53,5 +60,11 @@ public class Endings : MonoBehaviour
     public void EndScene()
     {
         Application.Quit();
+    }
+
+    private void LoadFlagsToStory(Story story) {
+        foreach(KeyValuePair<NarrativeEngine.Flag, int> flag in NarrativeEngine.GetAllUsedFlags()) {
+            story.variablesState.SetGlobal(flag.Key.ToString(), Ink.Runtime.IntValue.Create(flag.Value));
+        }
     }
 }

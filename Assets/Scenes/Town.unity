@@ -846,6 +846,24 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Eating
     clip: {fileID: 8300000, guid: 666350567de4e534eb5713eb726208a1, type: 3}
+    volume: 0.286
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: EndingGood
+    clip: {fileID: 8300000, guid: 6497597f55b3c89489a1b88235bc6b46, type: 3}
+    volume: 0.42
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: EndingSad
+    clip: {fileID: 8300000, guid: 95cce3bfc7f6d4444a1c4373a6e18709, type: 3}
     volume: 0.42
     volumeVariance: 0
     pitch: 1

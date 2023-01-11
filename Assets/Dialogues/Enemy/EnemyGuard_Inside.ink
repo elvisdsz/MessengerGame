@@ -2,6 +2,7 @@ INCLUDE ../globals.ink
 ...
 I have my eyes on you, just so you know.
 {PLAYER_BETRAYED==1: ->escaped_prisoner_dialogue}
+{COMPANION_BETRAYED==1: ->after_betraying_steve}
 + [Where is Steve?]
 - He had to go
 + [Okay] Keep moving
@@ -14,4 +15,8 @@ I have my eyes on you, just so you know.
 You smell of filth.
 Go on now. Our leader is right ahead
 But keep your distance
+->END
+
+=after_betraying_steve
+Our leader is right ahead
 ->END

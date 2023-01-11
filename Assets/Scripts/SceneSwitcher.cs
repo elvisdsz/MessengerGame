@@ -35,7 +35,7 @@ public class SceneSwitcher : MonoBehaviour {
         // Camp
         if (scene == 2) {
             SceneManager.LoadScene(scene);
-            player.gameObject.transform.position = new Vector2(8f, -9f);
+            player.gameObject.transform.position = new Vector2(8f, -13f);
             DialogueSystem._instance.ClearDialogues();
         }
         // Prison

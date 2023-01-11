@@ -11,7 +11,7 @@ The leader was surprised by the riches held by the aristocrats in the town. The 
 The leader marched to the town and snatched away all the valuables along with the precious Xurium.
 The king and the commander were imprisoned along with many other influential people.
 The looting destroyed the town. Many died. Those who survived preferred fleeing the town.
-[ You have reached an ending. Press SPACEBAR to exit the game. ]
+[ You have reached 1 of 4 endings. Press SPACEBAR to exit the game. ]
 ->END
 
 =ending2
@@ -21,7 +21,7 @@ The commander prepares the town's defence with all they have.
 The enemies arrive. The two forces clash. Most town soldiers die fighting.
 The enemies take over the town and promise to implement good governance.
 While there is glimmer of a hopeful future, the town people are still mourning the deaths of the fallen soldiers.
-[ You have reached an ending. Press SPACEBAR to exit the game. ]
+[ You have reached 1 of 4 endings. Press SPACEBAR to exit the game. ]
 ->END
 
 =ending3
@@ -33,7 +33,7 @@ The strength of the town's side along with Xurinium collides with the massive si
 There are many deaths on both sides.
 Enemies are forced to retreat.
 But the battle destroys the town. The survivors flee.
-[ You have reached an ending. Press SPACEBAR to exit the game. ]
+[ You have reached 1 of 4 endings. Press SPACEBAR to exit the game. ]
 ->END
 
 =ending4
@@ -42,6 +42,6 @@ When the large army arrived, as expected, the town folks turned on their king.
 The commander surrendered.
 The other town leader promised to implement good governance in this town.
 They used Xurinium to further formulating a cure and for scientic research.
-The messengers actions saved the town.
-[ You have reached an ending. Press SPACEBAR to exit the game. ]
+The messenger's actions saved the town.
+[ You have reached 1 of 4 endings. Press SPACEBAR to exit the game. ]
 ->END
