@@ -236,6 +236,10 @@ public class DialogueSystem : MonoBehaviour
             }
         }
 
+        else if(flag == NarrativeEngine.Flag.END1REACHED && value==1) {
+            SceneSwitcher.ChangeToScene(5);
+        }
+
     }
 
 }

@@ -1,5 +1,6 @@
 INCLUDE ../globals.ink
 
+{END1REACHED == 1: ->end1final}
 {ENDING == 1: ->ending1}
 {ENDING == 2: ->ending2}
 {ENDING == 3: ->ending3}
@@ -11,6 +12,10 @@ The leader was surprised by the riches held by the aristocrats in the town. The 
 The leader marched to the town and snatched away all the valuables along with the precious Xurium.
 The king and the commander were imprisoned along with many other influential people.
 The looting destroyed the town. Many died. Those who survived preferred fleeing the town.
+~END1REACHED=0
+->END
+
+=end1final
 [ You have reached 1 of 4 endings. Press SPACEBAR to exit the game. ]
 ->END
 

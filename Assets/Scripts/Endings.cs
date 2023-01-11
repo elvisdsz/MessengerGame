@@ -67,4 +67,18 @@ public class Endings : MonoBehaviour
             story.variablesState.SetGlobal(flag.Key.ToString(), Ink.Runtime.IntValue.Create(flag.Value));
         }
     }
+
+    public static void VariableChanged(string name, Ink.Runtime.Object value) {
+        NarrativeEngine.Flag flag;
+        if (!NarrativeEngine.Flag.TryParse(name, out flag)) {
+            Debug.LogWarning("Ink variable does not exist as a narative engine flag.");
+            return;
+        }
+        NarrativeEngine.SetFlag(flag, ((Ink.Runtime.IntValue) value).value);
+        int intVal = ((Ink.Runtime.IntValue) value).value;
+        
+        if(flag == NarrativeEngine.Flag.END1REACHED && intVal==0) {
+            SceneSwitcher.ChangeToScene(4);
+        }
+    }
 }
