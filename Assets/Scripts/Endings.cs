@@ -88,6 +88,7 @@ public class Endings : MonoBehaviour
         
         if(flag == NarrativeEngine.Flag.END1REACHED && intVal==0) {
             StopListening(story);
+            DialogueSystem._instance.ClearDialogues();
             SceneSwitcher.ChangeToScene(4);
         }
     }
